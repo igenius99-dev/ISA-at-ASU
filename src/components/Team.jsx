@@ -27,31 +27,31 @@ import {
 const Team = () => {
   const executiveBoard = [
     {
-      name: "Priya Sharma",
+      name: "Pratham Hegde",
       position: "President",
       major: "Computer Science",
       year: "Senior",
-      image: "👩‍💼",
+      image: "👨‍💼",
       bio: "Leading ISA with passion and dedication. Focused on creating an inclusive community for all Indian students at ASU.",
       responsibilities: ["Overall leadership", "Strategic planning", "External relations"],
       email: "president@isa-asu.com",
-      linkedin: "priya-sharma-asu",
-      instagram: "priya_sharma_asu"
+      linkedin: "pratham-hegde-asu",
+      instagram: "pratham_hegde_asu"
     },
     {
-      name: "Arjun Patel",
+      name: "Asmi Kachare",
       position: "Vice President",
       major: "Business Administration",
       year: "Senior",
-      image: "👨‍💼",
+      image: "👩‍💼",
       bio: "Supporting ISA's mission through event coordination and member engagement. Passionate about cultural exchange.",
       responsibilities: ["Event coordination", "Member engagement", "Community outreach"],
       email: "vicepresident@isa-asu.com",
-      linkedin: "arjun-patel-asu",
-      instagram: "arjun_patel_asu"
+      linkedin: "asmi-kachare-asu",
+      instagram: "asmi_kachare_asu"
     },
     {
-      name: "Sneha Reddy",
+      name: "Vaishnavi Mahajan",
       position: "Treasurer",
       major: "Finance",
       year: "Junior",
@@ -59,11 +59,11 @@ const Team = () => {
       bio: "Managing ISA's finances and budget planning. Ensuring financial transparency and responsible spending.",
       responsibilities: ["Budget management", "Financial planning", "Expense tracking"],
       email: "treasurer@isa-asu.com",
-      linkedin: "sneha-reddy-asu",
-      instagram: "sneha_reddy_asu"
+      linkedin: "vaishnavi-mahajan-asu",
+      instagram: "vaishnavi_mahajan_asu"
     },
     {
-      name: "Rohan Kumar",
+      name: "Deepak Akundi",
       position: "Secretary",
       major: "Engineering",
       year: "Junior",
@@ -71,8 +71,20 @@ const Team = () => {
       bio: "Keeping ISA organized and connected. Managing communications and maintaining records.",
       responsibilities: ["Meeting minutes", "Communication", "Record keeping"],
       email: "secretary@isa-asu.com",
-      linkedin: "rohan-kumar-asu",
-      instagram: "rohan_kumar_asu"
+      linkedin: "deepak-akundi-asu",
+      instagram: "deepak_akundi_asu"
+    },
+    {
+      name: "Sankalp Srinath",
+      position: "Joint Secretary",
+      major: "Computer Science",
+      year: "Sophomore",
+      image: "👨‍💻",
+      bio: "Supporting the Secretary in maintaining ISA's organization and communication systems.",
+      responsibilities: ["Assistant to Secretary", "Communication support", "Record keeping assistance"],
+      email: "jointsecretary@isa-asu.com",
+      linkedin: "sankalp-srinath-asu",
+      instagram: "sankalp_srinath_asu"
     }
   ]
 
@@ -190,20 +202,15 @@ const Team = () => {
   ]
 
   return (
-    <section id="team" className="py-20 bg-gradient-to-br from-purple-50 via-white to-pink-50">
+    <section id="team" className="pt-20 pb-20 bg-gradient-to-br from-purple-50 via-white to-pink-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <Badge variant="indian" className="mb-4">
-            <Crown className="w-3 h-3 mr-1" />
-            Our Team
-          </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             Meet Our Leadership Team
           </h2>
@@ -213,12 +220,38 @@ const Team = () => {
           </p>
         </motion.div>
 
+        {/* Quick Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-16"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-saffron mb-2">10+</div>
+              <div className="text-sm text-gray-600">Leadership Positions</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green mb-2">500+</div>
+              <div className="text-sm text-gray-600">Members Served</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange mb-2">50+</div>
+              <div className="text-sm text-gray-600">Events Organized</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple mb-2">4</div>
+              <div className="text-sm text-gray-600">Years Strong</div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Achievements */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-20"
         >
           <div className="text-center mb-12">
@@ -233,9 +266,8 @@ const Team = () => {
               <motion.div
                 key={achievement.title}
                 initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
               >
                 <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 text-center">
                   <CardHeader>
@@ -491,3 +523,4 @@ const Team = () => {
 }
 
 export default Team
+

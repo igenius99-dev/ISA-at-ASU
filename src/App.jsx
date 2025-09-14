@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Merch from './components/Merch'
 import About from './components/About'
 import Events from './components/Events'
 import IncomingStudents from './components/IncomingStudents'
@@ -24,6 +25,7 @@ function App() {
                 <Hero />
                 <About />
                 <Events />
+                <Merch />
               </>
             } />
             <Route path="/incoming" element={<IncomingStudents />} />

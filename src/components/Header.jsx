@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X, Home, Users, Calendar, Users2, Mail } from 'lucide-react'
 import { Button } from './ui/button'
+import ISALogo from '../assets/ISALogo.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,13 +30,15 @@ const Header = () => {
           {/* Logo */}
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-saffron via-orange to-green rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">ISA</span>
-            </div>
+            <img 
+              src={ISALogo} 
+              alt="ISA Logo" 
+              className="w-12 h-12 object-contain"
+            />
             <div>
-              <h1 className="text-xl font-bold text-gradient">ISA at ASU</h1>
+              <h1 className="text-xl font-bold text-gradient">ISA</h1>
               <p className="text-xs text-muted-foreground">Indian Students Association</p>
             </div>
           </motion.div>

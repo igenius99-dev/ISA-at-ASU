@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Button } from './ui/button'
-import { Badge } from './ui/badge'
 import { ArrowRight, Star, Users, Calendar, Heart } from 'lucide-react'
 
 const Hero = () => {
@@ -28,10 +27,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Badge variant="indian" className="mb-4">
-                <Star className="w-3 h-3 mr-1" />
-                Welcome to ISA at ASU
-              </Badge>
+              
               
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="text-gradient">Indian Students</span>
@@ -71,11 +67,11 @@ const Hero = () => {
               className="grid grid-cols-3 gap-8 pt-8"
             >
               <div className="text-center">
-                <div className="text-3xl font-bold text-saffron">500+</div>
+                <div className="text-3xl font-bold text-saffron">1000+</div>
                 <div className="text-sm text-gray-600">Active Members</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green">50+</div>
+                <div className="text-3xl font-bold text-green">15+</div>
                 <div className="text-sm text-gray-600">Events Annually</div>
               </div>
               <div className="text-center">
@@ -131,10 +127,11 @@ const Hero = () => {
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute -bottom-4 -left-4 w-12 h-12 bg-green/20 rounded-full blur-sm"
-            ></motion.div>
+            >            </motion.div>
           </motion.div>
         </div>
       </div>
+
 
       {/* Scroll Indicator */}
       <motion.div
