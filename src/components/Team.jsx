@@ -29,7 +29,7 @@ const Team = () => {
     {
       name: "Pratham Hegde",
       position: "President",
-      major: "Computer Science",
+      major: "Cybersecurity",
       year: "Senior",
       image: "👨‍💼",
       bio: "Leading ISA with passion and dedication. Focused on creating an inclusive community for all Indian students at ASU.",
@@ -41,7 +41,7 @@ const Team = () => {
     {
       name: "Asmi Kachare",
       position: "Vice President",
-      major: "Business Administration",
+      major: "Computer Science",
       year: "Senior",
       image: "👩‍💼",
       bio: "Supporting ISA's mission through event coordination and member engagement. Passionate about cultural exchange.",
@@ -53,8 +53,8 @@ const Team = () => {
     {
       name: "Vaishnavi Mahajan",
       position: "Treasurer",
-      major: "Finance",
-      year: "Junior",
+      major: "Computer Science",
+      year: "Senior",
       image: "👩‍💻",
       bio: "Managing ISA's finances and budget planning. Ensuring financial transparency and responsible spending.",
       responsibilities: ["Budget management", "Financial planning", "Expense tracking"],
@@ -65,10 +65,10 @@ const Team = () => {
     {
       name: "Deepak Akundi",
       position: "Secretary",
-      major: "Engineering",
-      year: "Junior",
+      major: "Chemical Eng.",
+      year: "PhD",
       image: "👨‍🔬",
-      bio: "Keeping ISA organized and connected. Managing communications and maintaining records.",
+      bio: "Keeping ISA organized and connected. Managing communications and maintaining records with love.",
       responsibilities: ["Meeting minutes", "Communication", "Record keeping"],
       email: "secretary@isa-asu.com",
       linkedin: "deepak-akundi-asu",
@@ -77,11 +77,11 @@ const Team = () => {
     {
       name: "Sankalp Srinath",
       position: "Joint Secretary",
-      major: "Computer Science",
-      year: "Sophomore",
+      major: "Robotics",
+      year: "Graduate",
       image: "👨‍💻",
-      bio: "Supporting the Secretary in maintaining ISA's organization and communication systems.",
-      responsibilities: ["Assistant to Secretary", "Communication support", "Record keeping assistance"],
+      bio: "Supporting the Secretary in maintaining ISA's organization and communication systems with love.",
+      responsibilities: ["Assistant to Secretary", "Communication support", "Record keeping"],
       email: "jointsecretary@isa-asu.com",
       linkedin: "sankalp-srinath-asu",
       instagram: "sankalp_srinath_asu"
@@ -233,7 +233,7 @@ const Team = () => {
               <div className="text-sm text-gray-600">Leadership Positions</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green mb-2">500+</div>
+              <div className="text-3xl font-bold text-green mb-2">5000+</div>
               <div className="text-sm text-gray-600">Members Served</div>
             </div>
             <div className="text-center">
@@ -241,7 +241,7 @@ const Team = () => {
               <div className="text-sm text-gray-600">Events Organized</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple mb-2">4</div>
+              <div className="text-3xl font-bold text-purple mb-2">10+</div>
               <div className="text-sm text-gray-600">Years Strong</div>
             </div>
           </div>
@@ -302,7 +302,7 @@ const Team = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch">
             {executiveBoard.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -311,8 +311,8 @@ const Team = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer">
-                  <CardHeader className="text-center">
+                <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer text-center">
+                  <CardHeader className={`text-center flex flex-col items-center ${member.name === 'Deepak Akundi' ? 'min-h-[200px]' : 'min-h-[180px]'}`}>
                     <div className="text-6xl mb-4">{member.image}</div>
                     <div className="space-y-2">
                       <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
@@ -326,7 +326,7 @@ const Team = () => {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-4 flex-1 flex flex-col">
                     <CardDescription className="text-gray-600 text-center">
                       {member.bio}
                     </CardDescription>
@@ -343,7 +343,7 @@ const Team = () => {
                       </ul>
                     </div>
 
-                    <div className="flex justify-center space-x-2 pt-2">
+                    <div className="flex justify-center space-x-2 pt-2 mt-auto">
                       <Button variant="outline" size="sm" asChild>
                         <a href={`mailto:${member.email}`}>
                           <Mail className="w-4 h-4" />

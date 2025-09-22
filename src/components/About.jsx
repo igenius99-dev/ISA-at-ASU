@@ -46,7 +46,7 @@ const About = () => {
   ]
 
   return (
-    <section className="py-20 bg-white/50">
+    <section id="about" className="py-20 bg-white/50">
       <div className="container mx-auto px-4">
         {/* Who We Are Section */}
         <motion.div
@@ -56,10 +56,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <Badge variant="indian" className="mb-4">
-            <Star className="w-3 h-3 mr-1" />
-            About Us
-          </Badge>
+          
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             Who We Are
           </h2>

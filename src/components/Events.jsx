@@ -62,10 +62,7 @@ const Events = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <Badge variant="indian" className="mb-4">
-            <Calendar className="w-3 h-3 mr-1" />
-            Events
-          </Badge>
+          
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             Upcoming Events
           </h2>

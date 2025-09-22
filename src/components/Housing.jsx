@@ -14,7 +14,6 @@ import {
   Mail,
   Globe,
   ArrowRight,
-  Building,
   Key,
   Shield,
   Heart,
@@ -25,6 +24,7 @@ import {
   BookOpen,
   Briefcase
 } from 'lucide-react'
+import { href } from 'react-router-dom'
 
 const Housing = () => {
   const housingOptions = [
@@ -50,26 +50,7 @@ const Housing = () => {
     }
   ]
 
-  const uniusFeatures = [
-    {
-      title: "Comprehensive Listings",
-      description: "From subleases to furnished apartments, Unius is the go-to place to find the perfect living space.",
-      icon: Building,
-      color: "from-saffron to-orange"
-    },
-    {
-      title: "Student-Driven",
-      description: "Existing students can add listings and postings, ensuring the most relevant and up-to-date options.",
-      icon: Users,
-      color: "from-green-500 to-green-600"
-    },
-    {
-      title: "User-Friendly",
-      description: "Our intuitive interface makes searching and listing easy and efficient.",
-      icon: Globe,
-      color: "from-blue-500 to-purple-500"
-    }
-  ]
+  
 
   const popularOffCampusOptions = [
     {
@@ -77,63 +58,72 @@ const Housing = () => {
       type: "Apartment Complex",
       features: ["Furnished units", "Pool & gym", "Near campus"],
       distance: "0.5 miles from ASU",
-      priceRange: "$800-1200/month"
+      priceRange: "$800-1200/month",
+      url: "https://www.paseoonuniversity.com/"
     },
     {
       name: "The Frederick",
       type: "Apartment Complex",
       features: ["Modern amenities", "Study rooms", "Pet-friendly"],
       distance: "0.3 miles from ASU",
-      priceRange: "$900-1300/month"
+      priceRange: "$900-1300/month",
+      url: "https://www.thefredricktempe.com/"
     },
     {
       name: "Hyve",
       type: "Student Housing",
       features: ["All-inclusive", "Social events", "Furnished"],
       distance: "0.4 miles from ASU",
-      priceRange: "$700-1100/month"
+      priceRange: "$700-1100/month",
+      url: "https://www.mark-taylor.com/apartments/az/tempe/the-hyve/"
     },
     {
       name: "Apollo",
       type: "Apartment Complex",
       features: ["Rooftop pool", "Fitness center", "Study spaces"],
       distance: "0.6 miles from ASU",
-      priceRange: "$850-1250/month"
+      priceRange: "$850-1250/month",
+      url: "https://www.apollotempe.com/"
     },
     {
       name: "Canvas",
       type: "Student Housing",
       features: ["Furnished units", "Community events", "Near campus"],
       distance: "0.2 miles from ASU",
-      priceRange: "$750-1150/month"
+      priceRange: "$750-1150/month",
+      url: "https://www.canvastempe.com/"
     },
     {
       name: "Desert Palm",
       type: "Apartment Complex",
       features: ["Pool & spa", "Fitness center", "Pet-friendly"],
       distance: "0.8 miles from ASU",
-      priceRange: "$800-1200/month"
+      priceRange: "$800-1200/month",
+      url: "https://imtresidential.com/properties/imt-desert-palm-village/"
     },
     {
       name: "Murietta",
       type: "Apartment Complex",
       features: ["Modern design", "Study rooms", "Near campus"],
       distance: "0.7 miles from ASU",
-      priceRange: "$850-1250/month"
+      priceRange: "$850-1250/month",
+      url: "https://www.muriettaapartments.com/"
     },
     {
       name: "Agave",
       type: "Apartment Complex",
       features: ["Furnished options", "Pool & gym", "Social spaces"],
       distance: "0.9 miles from ASU",
-      priceRange: "$750-1150/month"
+      priceRange: "$750-1150/month",
+      url: "https://www.agaveapt.com/"
     },
     {
       name: "Volta",
       type: "Student Housing",
       features: ["All-inclusive", "Events", "Furnished"],
       distance: "0.5 miles from ASU",
-      priceRange: "$700-1100/month"
+      priceRange: "$700-1100/month",
+      url: "https://www.decron.com/apartments/az/tempe/volta-on-broadway/"
     }
   ]
 
@@ -153,13 +143,7 @@ const Housing = () => {
       icon: Phone,
       color: "from-green-500 to-green-600"
     },
-    {
-      title: "Unius App",
-      description: "Student-driven platform for off-campus housing",
-      url: "https://unius.com",
-      icon: Building,
-      color: "from-saffron to-orange"
-    },
+    
     {
       title: "ISA Housing Support",
       description: "Get help from fellow Indian students with housing decisions",
@@ -218,10 +202,7 @@ const Housing = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Badge variant="indian" className="mb-4">
-            <Home className="w-3 h-3 mr-1" />
-            Housing Information
-          </Badge>
+          
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             ASU Housing Options
           </h2>
@@ -287,57 +268,7 @@ const Housing = () => {
           </div>
         </motion.div>
 
-        {/* Unius Partnership */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-20"
-        >
-          <Card className="bg-gradient-to-br from-saffron/10 to-orange/10 border-0 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Building className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-2">
-                Unius - College Housing
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
-                ISA has partnered with Unius, an application to help students find off-campus accommodations near ASU with ease.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-3 gap-8 mb-8">
-                {uniusFeatures.map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
-                    className="text-center"
-                  >
-                    <div className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center`}>
-                      <feature.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">
-                      {feature.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-              <div className="text-center">
-                <Button variant="indian" size="lg" className="group">
-                  <ExternalLink className="w-5 h-5 mr-2" />
-                  Visit Unius Platform
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+        
 
         {/* Popular Off-Campus Options */}
         <motion.div
@@ -387,8 +318,8 @@ const Housing = () => {
                         ))}
                       </ul>
                     </div>
-                    <Button variant="outline" size="sm" className="w-full group-hover:bg-saffron group-hover:text-white transition-colors">
-                      Learn More
+                    <Button variant="outline" size="sm" className="w-full group-hover:bg-saffron group-hover:text-white transition-colors" asChild>
+                      <a href={option.url || '#'} target="_blank" rel="noopener noreferrer">Learn More</a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -411,7 +342,7 @@ const Housing = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto justify-items-stretch">
             {housingResources.map((resource, index) => (
               <motion.div
                 key={resource.title}

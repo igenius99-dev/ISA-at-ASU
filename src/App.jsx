@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Merch from './components/Merch'
+import ScrollToTop from './components/ScrollToTop'
 import About from './components/About'
 import Events from './components/Events'
 import IncomingStudents from './components/IncomingStudents'
@@ -18,6 +18,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-green-50">
         <Header />
+        <ScrollToTop />
         <main>
           <Routes>
             <Route path="/" element={
@@ -25,7 +26,6 @@ function App() {
                 <Hero />
                 <About />
                 <Events />
-                <Merch />
               </>
             } />
             <Route path="/incoming" element={<IncomingStudents />} />

@@ -18,10 +18,10 @@ import {
 
 const Footer = () => {
   const socialLinks = [
-    { name: 'Instagram', icon: Instagram, href: '#', color: 'hover:text-pink-500' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
-    { name: 'WhatsApp', icon: MessageCircle, href: '#', color: 'hover:text-green-500' },
-    { name: 'Email', icon: Mail, href: 'mailto:official@isa-asu.com', color: 'hover:text-saffron' }
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/isa.asu', color: 'hover:text-pink-500' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/isa-asu/', color: 'hover:text-blue-600' },
+    { name: 'WhatsApp', icon: MessageCircle, href: 'https://chat.whatsapp.com/', color: 'hover:text-green-500' }
+
   ]
 
   const quickLinks = [
@@ -35,9 +35,7 @@ const Footer = () => {
   const studentResources = [
     { name: 'Incoming Students', href: '/incoming' },
     { name: 'Current Students', href: '/current' },
-    { name: 'Housing Information', href: '/housing' },
-    { name: 'Academic Support', href: '/#academic' },
-    { name: 'Cultural Events', href: '/#cultural' }
+    { name: 'Housing Information', href: '/housing' }
   ]
 
   const faqs = [
@@ -47,7 +45,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <footer id="contact" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
