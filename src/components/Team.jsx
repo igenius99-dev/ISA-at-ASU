@@ -90,64 +90,64 @@ const Team = () => {
 
   const committeeHeads = [
     {
-      name: "Ananya Singh",
-      position: "Cultural Events Director",
-      major: "Theater & Performance",
-      year: "Sophomore",
-      image: "👩‍🎭",
-      bio: "Bringing Indian culture to life through vibrant events and performances.",
-      responsibilities: ["Diwali celebration", "Holi festival", "Cultural shows"],
-      email: "cultural@isa-asu.com"
+      name: "Prince Sathwara",
+      position: "Director of Administration",
+      major: "",
+      year: "",
+      image: "👨‍💼",
+      bio: "Oversees administrative processes and organizational efficiency.",
+      responsibilities: ["Operations", "Documentation", "Internal coordination"],
+      email: "admin@isa-asu.com"
     },
     {
-      name: "Vikram Joshi",
-      position: "Academic Affairs Director",
-      major: "Pre-Med",
-      year: "Senior",
-      image: "👨‍⚕️",
-      bio: "Supporting students' academic success through tutoring and study groups.",
-      responsibilities: ["Study groups", "Academic workshops", "Mentorship program"],
-      email: "academic@isa-asu.com"
+      name: "Vatsal Rajeshbhai Kakadiya",
+      position: "Director of Events",
+      major: "",
+      year: "",
+      image: "🎉",
+      bio: "Leads planning and execution of ISA events and cultural programs.",
+      responsibilities: ["Event planning", "Logistics", "Vendor coordination"],
+      email: "events@isa-asu.com"
     },
     {
-      name: "Kavya Nair",
-      position: "Social Media Manager",
-      major: "Digital Media",
-      year: "Sophomore",
-      image: "👩‍💻",
-      bio: "Creating engaging content and managing ISA's online presence.",
-      responsibilities: ["Social media", "Content creation", "Digital marketing"],
-      email: "socialmedia@isa-asu.com"
+      name: "Manya Shukla",
+      position: "Director of Finance",
+      major: "",
+      year: "",
+      image: "💼",
+      bio: "Manages budgeting, reimbursements, and financial compliance.",
+      responsibilities: ["Budgeting", "Expense tracking", "Sponsorships"],
+      email: "finance@isa-asu.com"
     },
     {
-      name: "Aditya Gupta",
-      position: "Sports & Recreation Director",
-      major: "Kinesiology",
-      year: "Junior",
-      image: "👨‍🏃",
-      bio: "Organizing sports events and promoting healthy lifestyle among members.",
-      responsibilities: ["Cricket tournaments", "Fitness events", "Recreation activities"],
-      email: "sports@isa-asu.com"
+      name: "Deepikaa Anjan Kumar",
+      position: "Director of Human Resources",
+      major: "",
+      year: "",
+      image: "🧑‍🤝‍🧑",
+      bio: "Focuses on recruitment, onboarding, and member engagement.",
+      responsibilities: ["Recruitment", "Onboarding", "Member relations"],
+      email: "hr@isa-asu.com"
     },
     {
-      name: "Meera Iyer",
-      position: "Community Service Director",
-      major: "Social Work",
-      year: "Senior",
-      image: "👩‍🤝",
-      bio: "Leading community service initiatives and volunteer programs.",
-      responsibilities: ["Volunteer programs", "Community outreach", "Service projects"],
-      email: "community@isa-asu.com"
+      name: "Nysa Jain",
+      position: "Director of Marketing",
+      major: "",
+      year: "",
+      image: "📣",
+      bio: "Drives branding, social presence, and promotional campaigns.",
+      responsibilities: ["Branding", "Content", "Social media"],
+      email: "marketing@isa-asu.com"
     },
     {
-      name: "Rajesh Verma",
-      position: "Technology Director",
-      major: "Computer Science",
-      year: "Junior",
+      name: "Tushar Sachan",
+      position: "Director of IT",
+      major: "",
+      year: "",
       image: "👨‍💻",
-      bio: "Managing ISA's technology infrastructure and digital platforms.",
-      responsibilities: ["Website maintenance", "Tech support", "Digital tools"],
-      email: "technology@isa-asu.com"
+      bio: "Owns the website, tooling, and technical infrastructure.",
+      responsibilities: ["Website", "Automations", "Tech support"],
+      email: "it@isa-asu.com"
     }
   ]
 
@@ -220,6 +220,28 @@ const Team = () => {
           </p>
         </motion.div>
 
+        {/* Team Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mb-16"
+        >
+          <div className="relative overflow-hidden rounded-xl mx-auto max-w-5xl">
+            <img
+              src="/team.JPG"
+              alt="ISA Team"
+              className="w-full h-auto max-h-[80vh] object-contain"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+              <div className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/90 backdrop-blur text-gray-800 text-sm md:text-base font-semibold shadow">
+                Our Team • ISA at ASU
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Quick Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -227,24 +249,7 @@ const Team = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-16"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-saffron mb-2">10+</div>
-              <div className="text-sm text-gray-600">Leadership Positions</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green mb-2">5000+</div>
-              <div className="text-sm text-gray-600">Members Served</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange mb-2">50+</div>
-              <div className="text-sm text-gray-600">Events Organized</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple mb-2">10+</div>
-              <div className="text-sm text-gray-600">Years Strong</div>
-            </div>
-          </div>
+          
         </motion.div>
 
         {/* Achievements */}
@@ -302,7 +307,7 @@ const Team = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-stretch">
             {executiveBoard.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -312,7 +317,7 @@ const Team = () => {
                 viewport={{ once: true }}
               >
                 <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer text-center">
-                  <CardHeader className={`text-center flex flex-col items-center ${member.name === 'Deepak Akundi' ? 'min-h-[200px]' : 'min-h-[180px]'}`}>
+                  <CardHeader className={`text-center flex flex-col items-center ${member.name === 'Deepak Akundi' ? 'min-h-[180px]' : 'min-h-[160px]'} py-4`}> 
                     <div className="text-6xl mb-4">{member.image}</div>
                     <div className="space-y-2">
                       <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
@@ -326,7 +331,7 @@ const Team = () => {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-4 flex-1 flex flex-col">
+                  <CardContent className="space-y-3 flex-1 flex flex-col">
                     <CardDescription className="text-gray-600 text-center">
                       {member.bio}
                     </CardDescription>

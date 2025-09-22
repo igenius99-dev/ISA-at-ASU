@@ -64,12 +64,13 @@ const IncomingStudents = () => {
         "Study group connections",
         "Tutoring services",
         "Library resources"
-      ]
+      ],
+      link: "https://tutoring.asu.edu/"
     },
     {
       icon: Users,
       title: "Packing Checklist",
-      description: "Essential items you need to pack for your journey to ASU from India.",
+      description: "Essential items you need/should to pack for your journey to ASU from India.",
       color: "from-saffron to-orange",
       bgColor: "bg-gradient-to-br from-orange-50 to-orange-100",
       items: [
@@ -84,7 +85,7 @@ const IncomingStudents = () => {
     {
       icon: Shield,
       title: "Immigration & Legal",
-      description: "Navigate visa requirements, work authorization, and legal compliance.",
+      description: "Navigate visa requirements, work authorization, and legal compliance to stay in the US.",
       color: "from-purple-500 to-purple-600",
       bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
       items: [
@@ -270,7 +271,7 @@ const IncomingStudents = () => {
                             ))}
                           </ul>
                           <Button variant="indian" size="sm" className="w-full mt-4 group-hover:scale-105 transition-transform">
-                            View Checklist
+                            Learn More
                           </Button>
                         </CardContent>
                       </Card>
