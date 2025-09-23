@@ -27,7 +27,6 @@ function App() {
                 <Hero />
                 <About />
                 <Events />
-                <Contact />
               </>
             } />
             <Route path="/contact" element={<Contact />} />
