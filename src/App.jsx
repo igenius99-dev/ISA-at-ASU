@@ -11,6 +11,7 @@ import Team from './components/Team'
 import Housing from './components/Housing'
 import PackingChecklist from './components/PackingChecklist'
 import Footer from './components/Footer'
+import Contact from './components/Contact'
 import './index.css'
 
 function App() {
@@ -26,8 +27,10 @@ function App() {
                 <Hero />
                 <About />
                 <Events />
+                <Contact />
               </>
             } />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/incoming" element={<IncomingStudents />} />
             <Route path="/current" element={<CurrentStudents />} />
             <Route path="/team" element={<Team />} />

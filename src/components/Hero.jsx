@@ -95,9 +95,7 @@ const Hero = () => {
               
               <div className="space-y-6">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Heart className="w-10 h-10 text-white" />
-                  </div>
+                  
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">Cultural Heritage</h3>
                   <p className="text-gray-600">Celebrating India's rich traditions and diversity</p>
                 </div>

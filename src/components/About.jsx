@@ -108,9 +108,7 @@ const About = () => {
               <Card className={`h-full ${item.bgColor} border-0 shadow-lg`}>
                 <CardHeader>
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.color.includes('saffron') ? 'from-saffron to-orange' : 'from-green to-emerald'} flex items-center justify-center`}>
-                      <item.icon className="w-6 h-6 text-white" />
-                    </div>
+                    
                     <CardTitle className={`text-3xl font-bold ${item.color}`}>
                       {item.title}
                     </CardTitle>

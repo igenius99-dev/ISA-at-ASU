@@ -15,7 +15,7 @@ const Header = () => {
     { name: 'Current Students', href: '/current', icon: Users2 },
     { name: 'Events', href: '/#events', icon: Calendar },
     { name: 'Team', href: '/team', icon: Users2 },
-    { name: 'Contact', href: '/#contact', icon: Mail },
+    { name: 'Contact', href: '/contact', icon: Mail },
   ]
 
   return (
