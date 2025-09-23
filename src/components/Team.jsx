@@ -56,7 +56,7 @@ const Team = () => {
       major: "Computer Science",
       year: "Senior",
       image: "👩‍💻",
-      bio: "Managing ISA's finances and budget planning. Ensuring financial transparency and responsible spending.",
+      bio: "Managing ISA's finances and budget planning. Ensuring financial transparency and responsible spending of Money.",
       responsibilities: ["Budget management", "Financial planning", "Expense tracking"],
       email: "treasurer@isa-asu.com",
       linkedin: "vaishnavi-mahajan-asu",
@@ -147,7 +147,7 @@ const Team = () => {
       image: "👨‍💻",
       bio: "Owns the website, tooling, and technical infrastructure.",
       responsibilities: ["Website", "Automations", "Tech support"],
-      email: "it@isa-asu.com"
+      email: "tsachan@asu.edu"
     }
   ]
 
@@ -399,7 +399,15 @@ const Team = () => {
                 <Card className="h-full hover:shadow-lg transition-all duration-300 border border-gray-200 group cursor-pointer">
                   <CardHeader>
                     <div className="flex items-start space-x-4">
-                      <div className="text-4xl">{member.image}</div>
+                      <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
+                        {member.name === 'Nysa Jain' ? (
+                          <img src="/nysa.jpeg" alt="Nysa Jain" className="w-full h-full object-cover" />
+                        ) : member.name === 'Tushar Sachan' ? (
+                          <img src="/tushar.jpg" alt="Tushar Sachan" className="w-full h-full object-cover" />
+                        ) : (
+                          <span className="text-4xl">{member.image}</span>
+                        )}
+                      </div>
                       <div className="flex-1">
                         <CardTitle className="text-lg font-bold text-gray-800 group-hover:text-saffron transition-colors">
                           {member.name}
