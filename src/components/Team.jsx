@@ -246,45 +246,7 @@ const Team = () => {
           
         </motion.div>
 
-        {/* Achievements */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">Our Achievements</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Proud milestones and recognition for our community impact.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={achievement.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-              >
-                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 text-center">
-                  <CardHeader>
-                    <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${achievement.color} flex items-center justify-center`}>
-                      <achievement.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <CardTitle className="text-lg font-bold text-gray-800">
-                      {achievement.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600">
-                      {achievement.description}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        
 
         {/* Executive Board */}
         <motion.div
