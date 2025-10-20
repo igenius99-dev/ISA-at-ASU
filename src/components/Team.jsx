@@ -505,10 +505,7 @@ const Team = () => {
               Have questions, suggestions, or want to get involved? We'd love to hear from you!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="indian" size="lg" className="group">
-                <Mail className="w-5 h-5 mr-2" />
-                Contact Executive Board
-              </Button>
+              
               <Button variant="indianOutline" size="lg">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Join WhatsApp Group
