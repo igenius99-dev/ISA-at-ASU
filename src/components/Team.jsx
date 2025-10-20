@@ -79,7 +79,7 @@ const Team = () => {
       position: "Joint Secretary",
       major: "Robotics",
       year: "Graduate",
-      image: "👨‍💻",
+      image: "👨",
       bio: "Supporting the Secretary in maintaining ISA's organization and communication systems with love.",
       responsibilities: ["Assistant to Secretary", "Communication support", "Record keeping"],
       email: "jointsecretary@isa-asu.com",
@@ -92,9 +92,8 @@ const Team = () => {
     {
       name: "Prince Sathwara",
       position: "Director of Administration",
-      major: "",
-      year: "",
-      image: "👨‍💼",
+      major: "Construction Management",
+      year: "Senior",
       bio: "Oversees administrative processes and organizational efficiency.",
       responsibilities: ["Operations", "Documentation", "Internal coordination"],
       email: "admin@isa-asu.com"
@@ -102,9 +101,8 @@ const Team = () => {
     {
       name: "Vatsal Rajeshbhai Kakadiya",
       position: "Director of Events",
-      major: "",
-      year: "",
-      image: "🎉",
+      major: "CS and Eng. Management",
+      year: "Junior",
       bio: "Leads planning and execution of ISA events and cultural programs.",
       responsibilities: ["Event planning", "Logistics", "Vendor coordination"],
       email: "events@isa-asu.com"
@@ -112,9 +110,8 @@ const Team = () => {
     {
       name: "Manya Shukla",
       position: "Director of Finance",
-      major: "",
-      year: "",
-      image: "💼",
+      major: "Computer Science",
+      year: "Senior",
       bio: "Manages budgeting, reimbursements, and financial compliance.",
       responsibilities: ["Budgeting", "Expense tracking", "Sponsorships"],
       email: "finance@isa-asu.com"
@@ -122,9 +119,8 @@ const Team = () => {
     {
       name: "Deepikaa Anjan Kumar",
       position: "Director of Human Resources",
-      major: "",
-      year: "",
-      image: "🧑‍🤝‍🧑",
+      major: "Robotics",
+      year: "Graduate",
       bio: "Focuses on recruitment, onboarding, and member engagement.",
       responsibilities: ["Recruitment", "Onboarding", "Member relations"],
       email: "hr@isa-asu.com"
@@ -132,9 +128,8 @@ const Team = () => {
     {
       name: "Nysa Jain",
       position: "Director of Marketing",
-      major: "",
-      year: "",
-      image: "📣",
+      major: "Computer Science",
+      year: "Senior",
       bio: "Drives branding, social presence, and promotional campaigns.",
       responsibilities: ["Branding", "Content", "Social media"],
       email: "marketing@isa-asu.com"
@@ -142,9 +137,8 @@ const Team = () => {
     {
       name: "Tushar Sachan",
       position: "Director of IT",
-      major: "",
-      year: "",
-      image: "👨‍💻",
+      major: "Computer Science",
+      year: "Senior",
       bio: "Owns the website, tooling, and technical infrastructure.",
       responsibilities: ["Website", "Automations", "Tech support"],
       email: "tsachan@asu.edu"
@@ -404,7 +398,23 @@ const Team = () => {
                           <img src="/nysa.jpeg" alt="Nysa Jain" className="w-full h-full object-cover" />
                         ) : member.name === 'Tushar Sachan' ? (
                           <img src="/tushar.jpg" alt="Tushar Sachan" className="w-full h-full object-cover" />
-                        ) : (
+                        ) : member.name === 'Deepikaa Anjan Kumar' ? (
+                          <img src="/deepika.jpg" alt="Deepikaa Anjan Kumar" className="w-full h-full object-cover" />
+                        ): member.name === 'Manya Shukla' ? (
+                          <img src="/manya.jpeg" alt="Manya Shukla" className="w-full h-full object-cover" />
+                        ): member.name === 'Vatsal Rajeshbhai Kakadiya' ? (
+                          <img src="/vatsal.jpeg" alt="Vatsal Rajeshbhai Kakadiya" className="w-full h-full object-cover" />
+                        ): member.name === 'Prince Sathwara' ? (
+                          <img src="/prince.jpg" alt="Prince Sathwara" className="w-full h-full object-cover" />
+                        ): member.name === 'Sankalp Srinath' ? (
+                          <img src="/sankalp.jpg" alt="Sankalp Srinath" className="w-full h-full object-cover" />
+                        ): member.name === 'Deepak Akundi' ? (
+                          <img src="/deepak.jpg" alt="Deepak Akundi" className="w-full h-full object-cover" />
+                        ): member.name === 'Vaishnavi Mahajan' ? (
+                          <img src="/vaishnavi.jpg" alt="Vaishnavi Mahajan" className="w-full h-full object-cover" />
+                        ): member.name === 'Asmi Kachare' ? (
+                          <img src="/asmi.jpg" alt="Asmi Kachare" className="w-full h-full object-cover" />
+                        ): (
                           <span className="text-4xl">{member.image}</span>
                         )}
                       </div>
