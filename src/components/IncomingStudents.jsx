@@ -159,10 +159,7 @@ const IncomingStudents = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Badge variant="indian" className="mb-4">
-            <GraduationCap className="w-3 h-3 mr-1" />
-            Welcome to ASU
-          </Badge>
+          
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             Incoming Students
           </h2>
@@ -181,9 +178,7 @@ const IncomingStudents = () => {
         >
           <Card className="bg-gradient-to-br from-saffron/10 to-orange/10 border-0 shadow-xl">
             <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-4 flex items-center justify-center">
-                <CheckCircle className="w-8 h-8 text-white" />
-              </div>
+              
               <CardTitle className="text-3xl font-bold text-gray-800 mb-2">
                 Pre-Arrival Checklist
               </CardTitle>

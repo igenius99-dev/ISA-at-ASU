@@ -12,9 +12,7 @@ const Events = () => {
       time: "6:00 PM - 10:00 PM",
       location: "Memorial Union, ASU",
       description: "Celebrate India's Republic Day with cultural performances, traditional food, and patriotic songs.",
-      image: "🇮🇳",
       category: "Cultural",
-      icon: Star,
       color: "from-saffron to-orange",
       bgColor: "bg-gradient-to-br from-saffron/10 to-orange/10"
     },
@@ -24,9 +22,7 @@ const Events = () => {
       time: "7:00 PM - 11:00 PM",
       location: "Student Pavilion, ASU",
       description: "Dance the night away to the latest Bollywood hits and classic favorites with our DJ.",
-      image: "🎵",
       category: "Entertainment",
-      icon: Music,
       color: "from-pink to-purple",
       bgColor: "bg-gradient-to-br from-pink/10 to-purple/10"
     },
@@ -35,10 +31,8 @@ const Events = () => {
       date: "Dates announced soon",
       time: "TBA",
       location: "TBA",
-      description: "Join us for the festival of colors! Experience the joy and vibrancy of Holi with colors, music, and traditional sweets.",
-      image: "🎨",
+      description: "Join us for the festival of colors! Experience the joy and vibrancy of Holi with colors.",
       category: "Festival",
-      icon: Palette,
       color: "from-green to-emerald",
       bgColor: "bg-gradient-to-br from-green/10 to-emerald/10"
     }
@@ -52,7 +46,7 @@ const Events = () => {
   ]
 
   return (
-    <section id="events" className="py-20 bg-gradient-to-br from-orange-50 via-white to-green-50">
+    <section id="events" className="py-5 bg-gradient-to-br from-orange-50 via-white to-green-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -89,7 +83,7 @@ const Events = () => {
               viewport={{ once: true }}
               className={`flex items-center space-x-2 px-4 py-2 rounded-full ${category.bg} ${category.color} font-medium cursor-pointer hover:scale-105 transition-transform`}
             >
-              <category.icon className="w-4 h-4" />
+              
               <span>{category.name}</span>
             </motion.div>
           ))}
@@ -108,12 +102,8 @@ const Events = () => {
               <Card className={`h-full hover:shadow-2xl transition-all duration-300 ${event.bgColor} border-0 group cursor-pointer`}>
                 <CardHeader>
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center`}>
-                      <event.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <Badge variant="indian" className="text-xs">
-                      {event.category}
-                    </Badge>
+                 
+                    
                   </div>
                   
                   <CardTitle className="text-xl font-bold text-gray-800 mb-2 group-hover:text-saffron transition-colors">
@@ -161,9 +151,7 @@ const Events = () => {
           className="text-center bg-gradient-to-r from-saffron/10 via-orange/10 to-green/10 rounded-3xl p-12"
         >
           <div className="max-w-2xl mx-auto">
-            <div className="w-16 h-16 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-6 flex items-center justify-center">
-              <Sparkles className="w-8 h-8 text-white" />
-            </div>
+            
             <h3 className="text-3xl font-bold text-gray-800 mb-4">
               Don't Miss Out on the Fun!
             </h3>
@@ -175,9 +163,7 @@ const Events = () => {
               <Button variant="indian" size="lg">
                 View All Events
               </Button>
-              <Button variant="indianOutline" size="lg">
-                Join Our Newsletter
-              </Button>
+             
             </div>
           </div>
         </motion.div>

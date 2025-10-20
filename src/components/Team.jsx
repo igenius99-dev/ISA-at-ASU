@@ -312,7 +312,21 @@ const Team = () => {
               >
                 <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer text-center">
                   <CardHeader className={`text-center flex flex-col items-center ${member.name === 'Deepak Akundi' ? 'min-h-[180px]' : 'min-h-[160px]'} py-4`}> 
-                    <div className="text-6xl mb-4">{member.image}</div>
+                    <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center mb-4">
+                      {member.name === 'Pratham Hegde' ? (
+                        <img src="/pratham.jpeg" alt="Pratham Hegde" className="w-full h-full object-cover" />
+                      ) : member.name === 'Asmi Kachare' ? (
+                        <img src="/asmi.jpeg" alt="Asmi Kachare" className="w-full h-full object-cover" />
+                      ) : member.name === 'Vaishnavi Mahajan' ? (
+                        <img src="/vaishnavi.jpg" alt="Vaishnavi Mahajan" className="w-full h-full object-cover" />
+                      ) : member.name === 'Deepak Akundi' ? (
+                        <img src="/deepak.JPG" alt="Deepak Akundi" className="w-full h-full object-cover" />
+                      ) : member.name === 'Sankalp Srinath' ? (
+                        <img src="/sankalp.jpg" alt="Sankalp Srinath" className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-4xl">{member.image}</span>
+                      )}
+                    </div>
                     <div className="space-y-2">
                       <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
                         {member.name}

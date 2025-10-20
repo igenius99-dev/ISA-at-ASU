@@ -115,10 +115,7 @@ const CurrentStudents = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Badge variant="indian" className="mb-4">
-            <Users className="w-3 h-3 mr-1" />
-            Current Students
-          </Badge>
+          
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             Welcome Back, Sun Devils!
           </h2>

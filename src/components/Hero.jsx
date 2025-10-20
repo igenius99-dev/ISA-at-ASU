@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="absolute top-40 right-20 w-32 h-32 bg-green/20 rounded-full blur-xl float-animation" style={{ animationDelay: '2s' }}></div>
       <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-orange/20 rounded-full blur-xl float-animation" style={{ animationDelay: '4s' }}></div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -66,18 +66,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="grid grid-cols-3 gap-8 pt-8"
             >
-              <div className="text-center">
-                <div className="text-3xl font-bold text-saffron">1000+</div>
-                <div className="text-sm text-gray-600">Active Members</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green">15+</div>
-                <div className="text-sm text-gray-600">Events Annually</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange">10+</div>
-                <div className="text-sm text-gray-600">Years Strong</div>
-              </div>
+             
             </motion.div>
           </motion.div>
 

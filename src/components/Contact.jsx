@@ -19,7 +19,7 @@ const Contact = () => {
     setStatus({ loading: true, success: null, error: null })
 
     try {
-      // Call our serverless function (keeps API key secret)
+    
       const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -37,11 +37,11 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-orange-50 via-white to-green-50">
+    <section id="contact" className="py-20 pt-20 bg-gradient-to-br from-orange-50 via-white to-green-50">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 20 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
@@ -50,7 +50,7 @@ const Contact = () => {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Have questions or want to collaborate? Send us a message and we’ll respond soon.
           </p>
-        </motion.div>
+       
 
         <div className="max-w-3xl mx-auto">
           <Card className="border-0 shadow-xl bg-white/90 backdrop-blur">
@@ -129,6 +129,7 @@ const Contact = () => {
             </CardContent>
           </Card>
         </div>
+        </motion.div>
       </div>
     </section>
   )

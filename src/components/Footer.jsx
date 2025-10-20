@@ -58,8 +58,8 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-saffron via-orange to-green rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">ISA</span>
+              <div className="w-12 h-12 rounded-full flex items-center justify-center">
+                <img src="/ISALogo.png" alt="ISA Logo" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">ISA at ASU</h3>
@@ -174,16 +174,6 @@ const Footer = () => {
               </div>
             </div>
 
-            <div>
-              <h5 className="font-semibold mb-3 text-gray-200">Quick FAQs</h5>
-              <ul className="space-y-2 text-sm">
-                {faqs.map((faq, index) => (
-                  <li key={index} className="text-gray-400">
-                    {faq}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </motion.div>
         </div>
 
