@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const app = express()
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3005
 
 // Middleware
 app.use(cors())
@@ -32,7 +32,7 @@ app.post('/api/send-email', async (req, res) => {
     }
 
     const from = process.env.CONTACT_FROM_EMAIL || 'onboarding@resend.dev'
-    const to = process.env.CONTACT_TO_EMAIL || 'official@isa-asu.com'
+    const to = process.env.CONTACT_TO_EMAIL || 'tusharsachan06@gmail.com'
 
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
