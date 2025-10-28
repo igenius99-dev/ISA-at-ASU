@@ -61,7 +61,6 @@ app.post('/api/send-email', async (req, res) => {
 
     return res.status(200).json({ ok: true })
   } catch (error) {
-    console.error('Email sending error:', error)
     return res.status(500).json({ error: 'Server error' })
   }
 })
@@ -77,8 +76,4 @@ if (process.env.NODE_ENV === 'production') {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
-  console.log('Environment variables loaded:')
-  console.log('- RESEND_API_KEY:', process.env.RESEND_API_KEY ? '✅ Set' : '❌ Missing')
-  console.log('- CONTACT_FROM_EMAIL:', process.env.CONTACT_FROM_EMAIL || 'Using default')
-  console.log('- CONTACT_TO_EMAIL:', process.env.CONTACT_TO_EMAIL || 'Using default')
 })

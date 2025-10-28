@@ -36,7 +36,6 @@ const Contact = () => {
       setStatus({ loading: false, success: 'Message sent! We will get back to you soon.', error: null })
       setForm({ name: '', email: '', message: '' })
     } catch (err) {
-      console.error('Contact form error:', err)
       setStatus({ 
         loading: false, 
         success: null, 
