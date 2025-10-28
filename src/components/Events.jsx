@@ -7,27 +7,27 @@ import { Calendar, MapPin, Clock, Users, Star, Music, Palette, Sparkles } from '
 const Events = () => {
   const upcomingEvents = [
     {
-      title: "Jashn: Indian Republic Day",
-      date: "January 26th, 2025",
-      time: "6:00 PM - 10:00 PM",
-      location: "Memorial Union, ASU",
-      description: "Celebrate India's Republic Day with cultural performances, traditional food, and patriotic songs.",
+      title: "Jhankaar 2025",
+      date: "November 1st, 2025",
+      time: "6:00 PM - 9:00 PM",
+      location: "Senita Ballroom, Student Pavilion, ASU",
+      description: "Live Dance, Music performances and a night full of fun. Join us for a night of culture, music, and dance.",
       category: "Cultural",
       color: "from-saffron to-orange",
       bgColor: "bg-gradient-to-br from-saffron/10 to-orange/10"
     },
     {
       title: "Bollywood Night",
-      date: "February 07, 2025",
-      time: "7:00 PM - 11:00 PM",
-      location: "Student Pavilion, ASU",
+      date: "Dates announced soon",
+      time: "TBA",
+      location: "TBA",
       description: "Dance the night away to the latest Bollywood hits and classic favorites with our DJ.",
       category: "Entertainment",
       color: "from-pink to-purple",
       bgColor: "bg-gradient-to-br from-pink/10 to-purple/10"
     },
     {
-      title: "Holi 2025",
+      title: "Holi 2026",
       date: "Dates announced soon",
       time: "TBA",
       location: "TBA",
@@ -134,7 +134,7 @@ const Events = () => {
                   </div>
                   
                   <Button variant="indian" size="sm" className="w-full group-hover:scale-105 transition-transform">
-                    Learn More
+                    <a href="https://sundevilcentral.eoss.asu.edu/isaasu/feeds?type=event&type_id=384317&tab=details" target="_blank" rel="noopener noreferrer">I will be there!</a>
                   </Button>
                 </CardContent>
               </Card>
