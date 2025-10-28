@@ -27,10 +27,16 @@ const Contact = () => {
         body: JSON.stringify(form),
       })
 
-      const data = await res.json()
-
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to send message')
+        throw new Error('Something went wrong. Please try again.')
+      }
+
+      // Try to parse JSON, but handle cases where response isn't JSON
+      let data
+      try {
+        data = await res.json()
+      } catch (parseError) {
+        throw new Error('Something went wrong. Please try again.')
       }
       
       setStatus({ loading: false, success: 'Message sent! We will get back to you soon.', error: null })
@@ -39,7 +45,7 @@ const Contact = () => {
       setStatus({ 
         loading: false, 
         success: null, 
-        error: err.message || 'Could not send message. Please try again.' 
+        error: 'Something went wrong. Please try again.' 
       })
     }
   }

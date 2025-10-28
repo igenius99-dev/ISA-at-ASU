@@ -28,7 +28,7 @@ app.post('/api/send-email', async (req, res) => {
 
     const apiKey = process.env.RESEND_API_KEY
     if (!apiKey) {
-      return res.status(500).json({ error: 'Missing RESEND_API_KEY on server' })
+      return res.status(500).json({ error: 'Something went wrong' })
     }
 
     const from = process.env.CONTACT_FROM_EMAIL || 'onboarding@resend.dev'
