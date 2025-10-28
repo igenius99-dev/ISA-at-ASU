@@ -1,23 +1,24 @@
-export default async function handler(req, res) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
+import express from 'express'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    res.status(200).end()
-    return
-  }
+// Load environment variables
+dotenv.config()
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
-  }
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
+const app = express()
+const PORT = process.env.PORT || 3001
+
+// Middleware
+app.use(cors())
+app.use(express.json())
+
+// API route for sending emails
+app.post('/api/send-email', async (req, res) => {
   try {
     const { name, email, message } = req.body
 
@@ -63,4 +64,21 @@ export default async function handler(req, res) {
     console.error('Email sending error:', error)
     return res.status(500).json({ error: 'Server error' })
   }
+})
+
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(join(__dirname, 'dist')))
+  
+  app.get('*', (req, res) => {
+    res.sendFile(join(__dirname, 'dist', 'index.html'))
+  })
 }
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+  console.log('Environment variables loaded:')
+  console.log('- RESEND_API_KEY:', process.env.RESEND_API_KEY ? '✅ Set' : '❌ Missing')
+  console.log('- CONTACT_FROM_EMAIL:', process.env.CONTACT_FROM_EMAIL || 'Using default')
+  console.log('- CONTACT_TO_EMAIL:', process.env.CONTACT_TO_EMAIL || 'Using default')
+})

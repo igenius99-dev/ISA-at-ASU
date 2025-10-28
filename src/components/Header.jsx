@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, X, Home, Users, Calendar, Users2, Mail } from 'lucide-react'
+import { Menu, X, Home, Users, Users2, Mail } from 'lucide-react'
 import { Button } from './ui/button'
 import ISALogo from '../assets/ISALogo.png'
 

@@ -19,7 +19,6 @@ const Contact = () => {
     setStatus({ loading: true, success: null, error: null })
 
     try {
-    
       const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -28,11 +27,21 @@ const Contact = () => {
         body: JSON.stringify(form),
       })
 
-      if (!res.ok) throw new Error('Failed to send message')
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+      
       setStatus({ loading: false, success: 'Message sent! We will get back to you soon.', error: null })
       setForm({ name: '', email: '', message: '' })
     } catch (err) {
-      setStatus({ loading: false, success: null, error: 'Could not send message. Please try again.' })
+      console.error('Contact form error:', err)
+      setStatus({ 
+        loading: false, 
+        success: null, 
+        error: err.message || 'Could not send message. Please try again.' 
+      })
     }
   }
 
