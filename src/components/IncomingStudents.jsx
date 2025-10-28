@@ -246,9 +246,7 @@ const IncomingStudents = () => {
                     <a href={resource.link} target="_blank" rel="noopener noreferrer">
                       <Card className={`h-full hover:shadow-xl transition-all duration-300 ${resource.bgColor} border-0 group cursor-pointer`}>
                         <CardHeader className="text-center">
-                          <div className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br ${resource.color} flex items-center justify-center`}>
-                            <resource.icon className="w-6 h-6 text-white" />
-                          </div>
+                          
                           <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
                             {resource.title}
                           </CardTitle>
@@ -275,9 +273,7 @@ const IncomingStudents = () => {
                     <Link to={resource.link}>
                       <Card className={`h-full hover:shadow-xl transition-all duration-300 ${resource.bgColor} border-0 group cursor-pointer`}>
                         <CardHeader className="text-center">
-                          <div className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br ${resource.color} flex items-center justify-center`}>
-                            <resource.icon className="w-6 h-6 text-white" />
-                          </div>
+                          
                           <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
                             {resource.title}
                           </CardTitle>
@@ -304,9 +300,7 @@ const IncomingStudents = () => {
                 ) : (
                   <Card className={`h-full hover:shadow-xl transition-all duration-300 ${resource.bgColor} border-0 group cursor-pointer`}>
                     <CardHeader className="text-center">
-                      <div className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br ${resource.color} flex items-center justify-center`}>
-                        <resource.icon className="w-6 h-6 text-white" />
-                      </div>
+                      
                       <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
                         {resource.title}
                       </CardTitle>
@@ -385,65 +379,7 @@ const IncomingStudents = () => {
           </div>
         </motion.div>
 
-        {/* Upcoming Events */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">Upcoming Events</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Don't miss these important events for incoming students.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {upcomingEvents.map((event, index) => (
-              <motion.div
-                key={event.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 + (index * 0.2) }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border border-gray-200">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge variant="indian" className="text-xs">
-                        New Student
-                      </Badge>
-                      <Calendar className="w-4 h-4 text-saffron" />
-                    </div>
-                    <CardTitle className="text-lg font-bold text-gray-800">
-                      {event.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600">
-                      {event.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <Calendar className="w-4 h-4 text-saffron" />
-                      <span className="font-medium">{event.date}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <div className="w-4 h-4 text-saffron" />
-                      <span>{event.time}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <MapPin className="w-4 h-4 text-saffron" />
-                      <span>{event.location}</span>
-                    </div>
-                    <Button variant="indian" size="sm" className="w-full">
-                      RSVP Now
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        
 
         {/* Call to Action */}
         <motion.div
@@ -453,9 +389,7 @@ const IncomingStudents = () => {
           className="text-center bg-gradient-to-r from-saffron/10 via-orange/10 to-green/10 rounded-3xl p-12"
         >
           <div className="max-w-2xl mx-auto">
-            <div className="w-16 h-16 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-6 flex items-center justify-center">
-              <Heart className="w-8 h-8 text-white" />
-            </div>
+            
             <h3 className="text-3xl font-bold text-gray-800 mb-4">
               Ready to Start Your ASU Journey?
             </h3>

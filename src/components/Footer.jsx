@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { Button } from './ui/button'
 import { Badge } from './ui/badge'
+import PrivacyPolicyModal from './PrivacyPolicyModal'
 import { 
   Instagram, 
   Linkedin, 
@@ -17,6 +19,8 @@ import {
 } from 'lucide-react'
 
 const Footer = () => {
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false)
+
   const socialLinks = [
     { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/isa.asu', color: 'hover:text-pink-500' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/isa-asu/', color: 'hover:text-blue-600' },
@@ -192,12 +196,23 @@ const Footer = () => {
             
             <div className="flex items-center space-x-6 text-sm text-gray-400">
               <span>© 2024 ISA at ASU. All rights reserved.</span>
-              <a href="#" className="hover:text-saffron transition-colors">Privacy Policy</a>
+              <button 
+                onClick={() => setIsPrivacyModalOpen(true)}
+                className="hover:text-saffron transition-colors cursor-pointer"
+              >
+                Privacy Policy
+              </button>
               <a href="#" className="hover:text-saffron transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal 
+        isOpen={isPrivacyModalOpen} 
+        onClose={() => setIsPrivacyModalOpen(false)} 
+      />
     </footer>
   )
 }

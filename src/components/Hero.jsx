@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Button } from './ui/button'
-import { ArrowRight, Star, Users, Calendar, Heart } from 'lucide-react'
+import { ArrowRight, Users, Calendar} from 'lucide-react'
 
 const Hero = () => {
   return (
@@ -50,13 +50,13 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button variant="indian" size="xl" className="group">
-                Become a Member
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <Button asChild variant="indian" size="xl" className="group">
+              <a href="https://sundevilcentral.eoss.asu.edu/isaasu/home/" target="_blank" rel="noopener noreferrer">
+              Become a Member
+                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+             </a>
               </Button>
-              <Button variant="indianOutline" size="xl">
-                Learn More
-              </Button>
+             
             </motion.div>
 
             {/* Stats */}

@@ -293,7 +293,7 @@ const Team = () => {
                       <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
                         {member.name}
                       </CardTitle>
-                      <Badge variant="indian" className="text-sm">
+                      <Badge variant="secondary" className="text-xs mt-1">
                         {member.position}
                       </Badge>
                       <div className="text-sm text-gray-600">
@@ -437,54 +437,7 @@ const Team = () => {
           </div>
         </motion.div>
 
-        {/* Join Our Team */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">Join Our Team</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Ready to make a difference? Join our leadership team and help shape the future of ISA.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {joinTeamReasons.map((reason, index) => (
-              <motion.div
-                key={reason.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border border-gray-200 text-center">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <reason.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-lg font-bold text-gray-800">
-                      {reason.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600">
-                      {reason.description}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button variant="indian" size="lg" className="group">
-              Apply for Leadership Position
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-        </motion.div>
+        
 
         {/* Contact Team */}
         <motion.div
@@ -495,9 +448,7 @@ const Team = () => {
           className="text-center bg-gradient-to-r from-saffron/10 via-orange/10 to-green/10 rounded-3xl p-12"
         >
           <div className="max-w-2xl mx-auto">
-            <div className="w-16 h-16 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-6 flex items-center justify-center">
-              <MessageCircle className="w-8 h-8 text-white" />
-            </div>
+
             <h3 className="text-3xl font-bold text-gray-800 mb-4">
               Get in Touch with Our Team
             </h3>

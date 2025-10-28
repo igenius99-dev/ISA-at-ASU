@@ -78,9 +78,7 @@ const About = () => {
             >
               <Card className={`h-full hover:shadow-xl transition-all duration-300 ${card.bgColor} border-0`}>
                 <CardHeader className="text-center">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${card.color} flex items-center justify-center`}>
-                    <card.icon className="w-8 h-8 text-white" />
-                  </div>
+                 
                   <CardTitle className="text-xl font-bold text-gray-800">
                     {card.title}
                   </CardTitle>

@@ -86,7 +86,8 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="indian" size="sm">
-              Become a Member
+              <a href="https://sundevilcentral.eoss.asu.edu/isaasu/home/" target="_blank" rel="noopener noreferrer">Become a Member</a>
+              
             </Button>
           </div>
 
