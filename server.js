@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { createClient } from "@supabase/supabase-js";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
 // Load environment variables
 dotenv.config();
@@ -22,6 +24,22 @@ const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY,
 );
+
+const rateLimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(10, "10 s"),
+  analytics: true,
+  prefix: "@upstash/ratelimit",
+});
+
+function getClientIP(req) {
+  return (
+    req.headers["x-real-ip"] ||
+    req.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
+    req.socket?.remoteAddress ||
+    "unknown"
+  );
+}
 
 // API route for sending emails
 app.post("/api/send-email", async (req, res) => {
@@ -72,21 +90,27 @@ app.post("/api/send-email", async (req, res) => {
 });
 
 app.get("/api/leasing-listings", async (req, res) => {
-  try {
-    const { data, error } = await supabase
-      .from("sublease_listings")
-      .select("*")
-      .order("created_at", { ascending: false });
+  const ip = getClientIP(req);
 
-    if (error) {
-      console.error(error);
-      return res.status(500).json({ error: error.message });
+  const { success } = await rateLimit.limit(ip);
+
+  if (success) {
+    try {
+      const { data, error } = await supabase
+        .from("sublease_listings")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error(error);
+        return res.status(500).json({ error: error.message });
+      }
+
+      res.json(data);
+    } catch (err) {
+      res.status(500).json({ error: "Server error" });
     }
-
-    res.json(data);
-  } catch (err) {
-    res.status(500).json({ error: "Server error" });
-  }
+  } else return res.status(429).json({ error: "Request timed out" });
 });
 
 // Serve static files in production

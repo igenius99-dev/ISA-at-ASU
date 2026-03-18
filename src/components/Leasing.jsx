@@ -52,8 +52,7 @@ function ListingCard({ listing, index }) {
     listing.headline ??
     `Listing ${index + 1}`;
   const description = listing.description ?? listing.details ?? "";
-  const address =
-    listing.address ?? listing.location ?? listing.area ?? "";
+  const address = listing.address ?? listing.location ?? listing.area ?? "";
   const listingUrl = listing.listing_url ?? listing.url ?? "";
   const phoneNumber = listing.phone_number ?? listing.phone ?? "";
   const price =
@@ -121,7 +120,9 @@ function ListingCard({ listing, index }) {
             {ttl != null && ttl !== "" && (
               <li className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-saffron flex-shrink-0" />
-                <span>Lease term: {ttl} month{Number(ttl) !== 1 ? "s" : ""}</span>
+                <span>
+                  Lease term: {ttl} month{Number(ttl) !== 1 ? "s" : ""}
+                </span>
               </li>
             )}
             {bedrooms != null && (
