@@ -10,7 +10,7 @@ import {
 import { Button } from "./ui/button";
 import { User, Briefcase, Camera, LogOut } from "lucide-react";
 import { supabase } from "../lib/SupabaseClient";
-import { useAuth } from "../lib/AuthContext.jsX";
+import { useAuth } from "../lib/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 const YEAR_OPTIONS = [
