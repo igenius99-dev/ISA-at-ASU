@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Menu, X, Home, Users, Users2, Mail, Key } from "lucide-react";
 import { Button } from "./ui/button";
 import ISALogo from "../assets/ISALogo.png";
-import { useAuth } from "../lib/AuthContext.jsx";
+import { useAuth } from "../lib/AuthContextSupabase";
 import { supabase } from "../lib/SupabaseClient";
 
 const Header = () => {
