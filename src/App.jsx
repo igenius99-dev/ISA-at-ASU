@@ -1,18 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import ScrollToTop from './components/ScrollToTop'
-import About from './components/About'
-import Events from './components/Events'
-import IncomingStudents from './components/IncomingStudents'
-import CurrentStudents from './components/CurrentStudents'
-import Team from './components/Team'
-import Housing from './components/Housing'
-import PackingChecklist from './components/PackingChecklist'
-import Footer from './components/Footer'
-import Contact from './components/Contact'
-import './index.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import ScrollToTop from "./components/ScrollToTop";
+import About from "./components/About";
+import Events from "./components/Events";
+import IncomingStudents from "./components/IncomingStudents";
+import CurrentStudents from "./components/CurrentStudents";
+import Team from "./components/Team";
+import Housing from "./components/Housing";
+import Leasing from "./components/Leasing";
+import PackingChecklist from "./components/PackingChecklist";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
+import SignInUp from "./components/SignInUp";
+import "./index.css";
+import ProtectedRoute from "./lib/ProtectedRoute";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -22,25 +25,38 @@ function App() {
         <ScrollToTop />
         <main>
           <Routes>
-            <Route path="/" element={
-              <>
-                <Hero />
-                <About />
-                <Events />
-              </>
-            } />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <About />
+                  <Events />
+                </>
+              }
+            />
             <Route path="/contact" element={<Contact />} />
             <Route path="/incoming" element={<IncomingStudents />} />
             <Route path="/current" element={<CurrentStudents />} />
             <Route path="/team" element={<Team />} />
             <Route path="/housing" element={<Housing />} />
+            <Route path="/leasing" element={<Leasing />} />
             <Route path="/packing-checklist" element={<PackingChecklist />} />
+            <Route path="/login" element={<SignInUp />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

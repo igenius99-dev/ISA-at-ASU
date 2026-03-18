@@ -17,8 +17,10 @@
   "homepage": "https://igenius99-dev.github.io/ISA-at-ASU",
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "@supabase/supabase-js": "^2.98.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.3.3",
+    "@upstash/ratelimit": "^2.0.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
@@ -45,6 +47,7 @@
     "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
+    "supabase": "^2.77.0",
     "tailwindcss": "^4.1.13",
     "vite": "^7.1.2"
   }
