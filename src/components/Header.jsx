@@ -1,25 +1,36 @@
-import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Menu, X, Home, Users, Users2, Mail } from 'lucide-react'
-import { Button } from './ui/button'
-import ISALogo from '../assets/ISALogo.png'
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Menu, X, Home, Users, Users2, Mail, Key } from "lucide-react";
+import { Button } from "./ui/button";
+import ISALogo from "../assets/ISALogo.png";
+import { useAuth } from "../lib/AuthContext.jsX";
+import { supabase } from "../lib/SupabaseClient";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const location = useLocation()
+  const { session, user } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
+  async function handleLogout() {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error(error.message);
+    }
+  }
   const navItems = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'Incoming Students', href: '/incoming', icon: Users },
-    { name: 'Current Students', href: '/current', icon: Users2 },
- /*   { name: 'Events', href: '/#events', icon: Calendar },*/
-    { name: 'Team', href: '/team', icon: Users2 },
-    { name: 'Contact', href: '/contact', icon: Mail },
-  ]
+    { name: "Home", href: "/", icon: Home },
+    { name: "Incoming Students", href: "/incoming", icon: Users },
+    { name: "Current Students", href: "/current", icon: Users2 },
+    /*   { name: 'Events', href: '/#events', icon: Calendar },*/
+    { name: "Team", href: "/team", icon: Users2 },
+    { name: "Leasing", href: "/leasing", icon: Key },
+    { name: "Contact", href: "/contact", icon: Mail },
+  ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -28,18 +39,20 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-3"
           >
-            <img 
-              src={ISALogo} 
-              alt="ISA Logo" 
+            <img
+              src={ISALogo}
+              alt="ISA Logo"
               className="w-12 h-12 object-contain"
             />
             <div>
               <h1 className="text-xl font-bold text-gradient">ISA</h1>
-              <p className="text-xs text-muted-foreground">Indian Students Association</p>
+              <p className="text-xs text-muted-foreground">
+                Indian Students Association
+              </p>
             </div>
           </motion.div>
 
@@ -47,15 +60,15 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.div key={item.name}>
-                {item.href.startsWith('#') ? (
+                {item.href.startsWith("#") ? (
                   <motion.a
                     href={item.href}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-300 ${
-                      location.pathname === '/' && item.href === '/#events' 
-                        ? 'text-saffron' 
-                        : 'text-gray-700 hover:text-saffron'
+                      location.pathname === "/" && item.href === "/#events"
+                        ? "text-saffron"
+                        : "text-gray-700 hover:text-saffron"
                     }`}
                   >
                     <item.icon className="w-4 h-4" />
@@ -69,9 +82,9 @@ const Header = () => {
                     <Link
                       to={item.href}
                       className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-300 ${
-                        location.pathname === item.href 
-                          ? 'text-saffron' 
-                          : 'text-gray-700 hover:text-saffron'
+                        location.pathname === item.href
+                          ? "text-saffron"
+                          : "text-gray-700 hover:text-saffron"
                       }`}
                     >
                       <item.icon className="w-4 h-4" />
@@ -84,12 +97,19 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button variant="indian" size="sm">
-              <a href="https://sundevilcentral.eoss.asu.edu/isaasu/home/" target="_blank" rel="noopener noreferrer">Become a Member</a>
-              
-            </Button>
-          </div>
+          {session === null ? (
+            <div className="hidden md:block">
+              <Button variant="indian" size="sm">
+                <Link to="/login"> Team login</Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="hidden md:block">
+              <Button variant="indian" size="sm" onClick={handleLogout}>
+                Logout
+              </Button>
+            </div>
+          )}
 
           {/* Mobile Menu Button */}
           <Button
@@ -98,7 +118,11 @@ const Header = () => {
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </Button>
         </div>
 
@@ -106,14 +130,14 @@ const Header = () => {
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden mt-4 py-4 border-t border-gray-200"
           >
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <div key={item.name}>
-                  {item.href.startsWith('#') ? (
+                  {item.href.startsWith("#") ? (
                     <a
                       href={item.href}
                       className="flex items-center space-x-2 text-sm font-medium text-gray-700 hover:text-saffron transition-colors duration-300"
@@ -144,7 +168,7 @@ const Header = () => {
         )}
       </div>
     </motion.header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
