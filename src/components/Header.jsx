@@ -158,11 +158,19 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <div className="pt-4">
-                <Button variant="indian" size="sm" className="w-full">
-                  Become a Member
-                </Button>
-              </div>
+              {session === null ? (
+                <div className="hidden md:block">
+                  <Button variant="indian" size="sm">
+                    <Link to="/login"> Team login</Link>
+                  </Button>
+                </div>
+              ) : (
+                <div className="hidden md:block">
+                  <Button variant="indian" size="sm" onClick={handleLogout}>
+                    Logout
+                  </Button>
+                </div>
+              )}
             </nav>
           </motion.div>
         )}
