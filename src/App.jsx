@@ -16,6 +16,7 @@ import SignInUp from "./components/SignInUp";
 import "./index.css";
 import ProtectedRoute from "./lib/ProtectedRoute";
 import Dashboard from "./components/Dashboard";
+import Election from "./components/election";
 
 function App() {
   return (
@@ -48,6 +49,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/elections"
+              element={
+                <ProtectedRoute>
+                  <Election />
                 </ProtectedRoute>
               }
             />

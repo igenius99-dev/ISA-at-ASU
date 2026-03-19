@@ -1,17 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "./ui/card";
 import { Button } from "./ui/button";
 import { User, Briefcase, Camera, LogOut } from "lucide-react";
 import { supabase } from "../lib/SupabaseClient";
 import { useAuth } from "../lib/AuthContextSupabase";
 import { useNavigate } from "react-router-dom";
+import DashboardSidebar from "./DashboardSidebar";
 
 const YEAR_OPTIONS = [
   "Freshman",
@@ -32,6 +26,8 @@ export default function Dashboard() {
   const [year, setYear] = useState("");
   const [photoURL, setPhotoURL] = useState(null);
   const [photoFile, setPhotoFile] = useState(null);
+  const [linkedinUrl, setLinkedinUrl] = useState("");
+  const [instagramUrl, setInstagramUrl] = useState("");
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState({ text: "", type: "" });
@@ -62,6 +58,14 @@ export default function Dashboard() {
     if (!file) return;
     setPhotoFile(file);
     setPhotoURL(URL.createObjectURL(file));
+  }
+
+  function handleLinkedInChange(e) {
+    setLinkedinUrl(e.target.value);
+  }
+
+  function handleInstagramChange(e) {
+    setInstagramUrl(e.target.value);
   }
 
   async function handleSave(e) {
@@ -98,6 +102,8 @@ export default function Dashboard() {
       year,
       photo_url: uploadedPhotoURL,
       updated_at: new Date().toISOString(),
+      linkedinurl: linkedinUrl,
+      instagramurl: instagramUrl,
     });
 
     if (error) {
@@ -116,7 +122,7 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <section className="min-h-[calc(100vh)] flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-green-50">
+      <section className="min-h-[calc(100vh)] pt-24 flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-green-50">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -128,32 +134,37 @@ export default function Dashboard() {
     );
   }
 
-  return (
-    <section className="min-h-[calc(100vh)] flex items-center justify-center py-20 bg-gradient-to-br from-orange-50 via-white to-green-50">
-      <div className="container mx-auto px-4 flex justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="w-full max-w-lg"
-        >
-          <Card className="border-0 shadow-2xl bg-white/80 backdrop-blur-sm">
-            <CardHeader className="text-center pb-2">
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <CardTitle className="text-3xl font-bold text-gray-800">
-                  Your Profile
-                </CardTitle>
-                <CardDescription className="text-gray-600 mt-2 text-base">
-                  {user?.email}
-                </CardDescription>
-              </motion.div>
-            </CardHeader>
+  const profileForSidebar = {
+    name,
+    photo_url: photoURL,
+  };
 
-            <CardContent className="pt-4">
+  return (
+    <section className="min-h-[calc(100vh)] pt-24 bg-gradient-to-br from-orange-50 via-white to-green-50">
+      <div className="container mx-auto px-4 flex gap-6 items-start">
+        <DashboardSidebar profile={profileForSidebar} userEmail={user?.email} />
+
+        <main className="flex-1">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="w-full max-w-3xl mx-auto"
+          >
+            <div className="bg-white/90 backdrop-blur border-0 shadow-xl rounded-xl px-8 py-8">
+              <header className="text-center pb-6">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <h2 className="text-3xl font-bold text-gray-800">
+                    Your Profile
+                  </h2>
+                  <p className="text-gray-600 mt-2 text-base">{user?.email}</p>
+                </motion.div>
+              </header>
+
               <form onSubmit={handleSave} className="space-y-6">
                 {/* Avatar */}
                 <div className="flex flex-col items-center gap-3">
@@ -162,7 +173,7 @@ export default function Dashboard() {
                     onClick={() => fileInputRef.current?.click()}
                     className="relative group"
                   >
-                    <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-saffron/30 shadow-lg bg-gradient-to-br from-saffron/10 to-orange/10 flex items-center justify-center">
+                    <div className="w-28 h-28 rounded-full overflow-hidden border-saffron/30 shadow-lg bg-gradient-to-br from-saffron/10 to-orange/10 flex items-center justify-center">
                       {photoURL ? (
                         <img
                           src={photoURL}
@@ -233,6 +244,42 @@ export default function Dashboard() {
                   </div>
                 </div>
 
+                {/* LinkedIn URL */}
+                <div className="space-y-2">
+                  <label
+                    htmlFor="linkedinUrl"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    LinkedIn URL (Optional)
+                  </label>
+                  <input
+                    id="linkedinUrl"
+                    type="url"
+                    placeholder="https://linkedin.com/in/your-handle"
+                    value={linkedinUrl}
+                    onChange={handleLinkedInChange}
+                    className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-saffron/50 focus:border-saffron transition-all duration-200"
+                  />
+                </div>
+
+                {/* Instagram URL */}
+                <div className="space-y-2">
+                  <label
+                    htmlFor="instagramUrl"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    Instagram URL (Optional)
+                  </label>
+                  <input
+                    id="instagramUrl"
+                    type="url"
+                    placeholder="https://instagram.com/your-handle"
+                    value={instagramUrl}
+                    onChange={handleInstagramChange}
+                    className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-saffron/50 focus:border-saffron transition-all duration-200"
+                  />
+                </div>
+
                 {/* Year in College */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700">
@@ -293,9 +340,9 @@ export default function Dashboard() {
                   Sign Out
                 </button>
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+            </div>
+          </motion.div>
+        </main>
       </div>
     </section>
   );

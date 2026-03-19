@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X, Home, Users, Users2, Mail, Key } from "lucide-react";
+import { Menu, X, Home, Users, Users2, Mail, Key, User } from "lucide-react";
 import { Button } from "./ui/button";
 import ISALogo from "../assets/ISALogo.png";
 import { useAuth } from "../lib/AuthContextSupabase";
@@ -104,11 +104,34 @@ const Header = () => {
               </Button>
             </div>
           ) : (
-            <div className="hidden md:block">
-              <Button variant="indian" size="sm" onClick={handleLogout}>
-                Logout
-              </Button>
-            </div>
+            <>
+              <div className="md:hidden">
+                <Link to="/dashboard" aria-label="Profile">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full"
+                  >
+                    <User className="w-5 h-5" />
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="hidden md:flex items-center gap-3">
+                <Link to="/dashboard" aria-label="Profile">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full"
+                  >
+                    <User className="w-5 h-5" />
+                  </Button>
+                </Link>
+                <Button variant="indian" size="sm" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </div>
+            </>
           )}
 
           {/* Mobile Menu Button */}

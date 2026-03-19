@@ -1,13 +1,19 @@
-import { motion } from 'framer-motion'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge'
-import { Button } from './ui/button'
-import { 
-  Users, 
-  Crown, 
-  Mail, 
-  Linkedin, 
-  Instagram, 
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import {
+  Users,
+  Crown,
+  Mail,
+  Linkedin,
+  Instagram,
   MessageCircle,
   Award,
   Star,
@@ -21,8 +27,8 @@ import {
   GraduationCap,
   ArrowRight,
   ExternalLink,
-  Phone
-} from 'lucide-react'
+  Phone,
+} from "lucide-react";
 
 const Team = () => {
   const executiveBoard = [
@@ -33,10 +39,14 @@ const Team = () => {
       year: "Senior",
       image: "👨‍💼",
       bio: "Leading ISA with passion and dedication. Focused on creating an inclusive community for all Indian students at ASU.",
-      responsibilities: ["Overall leadership", "Strategic planning", "External relations"],
+      responsibilities: [
+        "Overall leadership",
+        "Strategic planning",
+        "External relations",
+      ],
       email: "president@isa-asu.com",
       linkedin: "pratham-hegde-asu",
-      instagram: "pratham_hegde_asu"
+      instagram: "pratham_hegde_asu",
     },
     {
       name: "Asmi Kachare",
@@ -45,10 +55,14 @@ const Team = () => {
       year: "Senior",
       image: "👩‍💼",
       bio: "Supporting ISA's mission through event coordination and member engagement. Passionate about cultural exchange.",
-      responsibilities: ["Event coordination", "Member engagement", "Community outreach"],
+      responsibilities: [
+        "Event coordination",
+        "Member engagement",
+        "Community outreach",
+      ],
       email: "vicepresident@isa-asu.com",
       linkedin: "asmi-kachare-asu",
-      instagram: "asmi_kachare_asu"
+      instagram: "asmi_kachare_asu",
     },
     {
       name: "Vaishnavi Mahajan",
@@ -57,10 +71,14 @@ const Team = () => {
       year: "Senior",
       image: "👩‍💻",
       bio: "Managing ISA's finances and budget planning. Ensuring financial transparency and responsible spending of Money.",
-      responsibilities: ["Budget management", "Financial planning", "Expense tracking"],
+      responsibilities: [
+        "Budget management",
+        "Financial planning",
+        "Expense tracking",
+      ],
       email: "treasurer@isa-asu.com",
       linkedin: "vaishnavi-mahajan-asu",
-      instagram: "vaishnavi_mahajan_asu"
+      instagram: "vaishnavi_mahajan_asu",
     },
     {
       name: "Deepak Akundi",
@@ -72,7 +90,7 @@ const Team = () => {
       responsibilities: ["Meeting minutes", "Communication", "Record keeping"],
       email: "secretary@isa-asu.com",
       linkedin: "deepak-akundi-asu",
-      instagram: "deepak_akundi_asu"
+      instagram: "deepak_akundi_asu",
     },
     {
       name: "Sankalp Srinath",
@@ -81,12 +99,16 @@ const Team = () => {
       year: "Graduate",
       image: "👨",
       bio: "Supporting the Secretary in maintaining ISA's organization and communication systems with love.",
-      responsibilities: ["Assistant to Secretary", "Communication support", "Record keeping"],
+      responsibilities: [
+        "Assistant to Secretary",
+        "Communication support",
+        "Record keeping",
+      ],
       email: "jointsecretary@isa-asu.com",
       linkedin: "sankalp-srinath-asu",
-      instagram: "sankalp_srinath_asu"
-    }
-  ]
+      instagram: "sankalp_srinath_asu",
+    },
+  ];
 
   const committeeHeads = [
     {
@@ -95,8 +117,12 @@ const Team = () => {
       major: "Construction Management",
       year: "Senior",
       bio: "Oversees administrative processes and organizational efficiency.",
-      responsibilities: ["Operations", "Documentation", "Internal coordination"],
-      email: "admin@isa-asu.com"
+      responsibilities: [
+        "Operations",
+        "Documentation",
+        "Internal coordination",
+      ],
+      email: "admin@isa-asu.com",
     },
     {
       name: "Vatsal Rajeshbhai Kakadiya",
@@ -105,7 +131,7 @@ const Team = () => {
       year: "Junior",
       bio: "Leads planning and execution of ISA events and cultural programs.",
       responsibilities: ["Event planning", "Logistics", "Vendor coordination"],
-      email: "events@isa-asu.com"
+      email: "events@isa-asu.com",
     },
     {
       name: "Manya Shukla",
@@ -114,7 +140,7 @@ const Team = () => {
       year: "Senior",
       bio: "Manages budgeting, reimbursements, and financial compliance.",
       responsibilities: ["Budgeting", "Expense tracking", "Sponsorships"],
-      email: "finance@isa-asu.com"
+      email: "finance@isa-asu.com",
     },
     {
       name: "Deepikaa Anjan Kumar",
@@ -123,7 +149,7 @@ const Team = () => {
       year: "Graduate",
       bio: "Focuses on recruitment, onboarding, and member engagement.",
       responsibilities: ["Recruitment", "Onboarding", "Member relations"],
-      email: "hr@isa-asu.com"
+      email: "hr@isa-asu.com",
     },
     {
       name: "Nysa Jain",
@@ -132,7 +158,7 @@ const Team = () => {
       year: "Senior",
       bio: "Drives branding, social presence, and promotional campaigns.",
       responsibilities: ["Branding", "Content", "Social media"],
-      email: "marketing@isa-asu.com"
+      email: "marketing@isa-asu.com",
     },
     {
       name: "Tushar Sachan",
@@ -141,62 +167,73 @@ const Team = () => {
       year: "Senior",
       bio: "Owns the website, tooling, and technical infrastructure.",
       responsibilities: ["Website", "Automations", "Tech support"],
-      email: "tsachan@asu.edu"
-    }
-  ]
+      email: "tsachan@asu.edu",
+    },
+  ];
 
   const achievements = [
     {
       title: "Best Cultural Organization 2024",
-      description: "Recognized by ASU Student Government for outstanding cultural programming",
+      description:
+        "Recognized by ASU Student Government for outstanding cultural programming",
       icon: Award,
-      color: "from-yellow-500 to-orange-500"
+      color: "from-yellow-500 to-orange-500",
     },
     {
       title: "500+ Active Members",
-      description: "Largest Indian student organization at Arizona State University",
+      description:
+        "Largest Indian student organization at Arizona State University",
       icon: Users,
-      color: "from-blue-500 to-purple-500"
+      color: "from-blue-500 to-purple-500",
     },
     {
       title: "50+ Events Annually",
-      description: "Hosting diverse cultural, academic, and social events throughout the year",
+      description:
+        "Hosting diverse cultural, academic, and social events throughout the year",
       icon: Calendar,
-      color: "from-green-500 to-teal-500"
+      color: "from-green-500 to-teal-500",
     },
     {
       title: "Community Impact Award",
-      description: "Recognized for significant contributions to the local Indian community",
+      description:
+        "Recognized for significant contributions to the local Indian community",
       icon: Heart,
-      color: "from-red-500 to-pink-500"
-    }
-  ]
+      color: "from-red-500 to-pink-500",
+    },
+  ];
 
   const joinTeamReasons = [
     {
       icon: Target,
       title: "Leadership Development",
-      description: "Develop essential leadership skills and gain valuable experience managing teams and projects."
+      description:
+        "Develop essential leadership skills and gain valuable experience managing teams and projects.",
     },
     {
       icon: Users,
       title: "Community Impact",
-      description: "Make a positive impact on the Indian student community and help create memorable experiences."
+      description:
+        "Make a positive impact on the Indian student community and help create memorable experiences.",
     },
     {
       icon: Briefcase,
       title: "Professional Growth",
-      description: "Build your resume with leadership experience and develop skills valued by employers."
+      description:
+        "Build your resume with leadership experience and develop skills valued by employers.",
     },
     {
       icon: Heart,
       title: "Cultural Connection",
-      description: "Deepen your connection to Indian culture while sharing it with others at ASU."
-    }
-  ]
+      description:
+        "Deepen your connection to Indian culture while sharing it with others at ASU.",
+    },
+  ];
 
   return (
-    <section id="team" className="pt-20 pb-20 bg-gradient-to-br from-purple-50 via-white to-pink-50">
+    <section
+      id="team"
+      className="pt-20 pb-20 bg-gradient-to-br from-purple-50 via-white to-pink-50"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -209,8 +246,9 @@ const Team = () => {
             Meet Our Leadership Team
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our dedicated team of student leaders works tirelessly to create an 
-            inclusive, vibrant, and supportive community for all Indian students at ASU.
+            Our dedicated team of student leaders works tirelessly to create an
+            inclusive, vibrant, and supportive community for all Indian students
+            at ASU.
           </p>
         </motion.div>
 
@@ -242,11 +280,7 @@ const Team = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-16"
-        >
-          
-        </motion.div>
-
-        
+        ></motion.div>
 
         {/* Executive Board */}
         <motion.div
@@ -257,9 +291,12 @@ const Team = () => {
           className="mb-20"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">Executive Board</h3>
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+              Executive Board
+            </h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our core leadership team responsible for ISA's strategic direction and operations.
+              Our core leadership team responsible for ISA's strategic direction
+              and operations.
             </p>
           </div>
 
@@ -273,18 +310,40 @@ const Team = () => {
                 viewport={{ once: true }}
               >
                 <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer text-center">
-                  <CardHeader className={`text-center flex flex-col items-center ${member.name === 'Deepak Akundi' ? 'min-h-[180px]' : 'min-h-[160px]'} py-4`}> 
+                  <CardHeader
+                    className={`text-center flex flex-col items-center ${member.name === "Deepak Akundi" ? "min-h-[180px]" : "min-h-[160px]"} py-4`}
+                  >
                     <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center mb-4">
-                      {member.name === 'Pratham Hegde' ? (
-                        <img src="/pratham.jpeg" alt="Pratham Hegde" className="w-full h-full object-cover" />
-                      ) : member.name === 'Asmi Kachare' ? (
-                        <img src="/asmi.jpeg" alt="Asmi Kachare" className="w-full h-full object-cover" />
-                      ) : member.name === 'Vaishnavi Mahajan' ? (
-                        <img src="/vaishnavi.jpg" alt="Vaishnavi Mahajan" className="w-full h-full object-cover" />
-                      ) : member.name === 'Deepak Akundi' ? (
-                        <img src="/deepak.JPG" alt="Deepak Akundi" className="w-full h-full object-cover" />
-                      ) : member.name === 'Sankalp Srinath' ? (
-                        <img src="/sankalp.jpg" alt="Sankalp Srinath" className="w-full h-full object-cover" />
+                      {member.name === "Pratham Hegde" ? (
+                        <img
+                          src="/pratham.jpeg"
+                          alt="Pratham Hegde"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.name === "Asmi Kachare" ? (
+                        <img
+                          src="/asmi.jpeg"
+                          alt="Asmi Kachare"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.name === "Vaishnavi Mahajan" ? (
+                        <img
+                          src="/vaishnavi.jpg"
+                          alt="Vaishnavi Mahajan"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.name === "Deepak Akundi" ? (
+                        <img
+                          src="/deepak.JPG"
+                          alt="Deepak Akundi"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.name === "Sankalp Srinath" ? (
+                        <img
+                          src="/sankalp.jpg"
+                          alt="Sankalp Srinath"
+                          className="w-full h-full object-cover"
+                        />
                       ) : (
                         <span className="text-4xl">{member.image}</span>
                       )}
@@ -305,12 +364,17 @@ const Team = () => {
                     <CardDescription className="text-gray-600 text-center">
                       {member.bio}
                     </CardDescription>
-                    
+
                     <div className="space-y-2">
-                      <h4 className="font-semibold text-gray-800 text-sm">Key Responsibilities:</h4>
+                      <h4 className="font-semibold text-gray-800 text-sm">
+                        Key Responsibilities:
+                      </h4>
                       <ul className="space-y-1">
                         {member.responsibilities.map((responsibility, idx) => (
-                          <li key={idx} className="flex items-center space-x-2 text-sm text-gray-600">
+                          <li
+                            key={idx}
+                            className="flex items-center space-x-2 text-sm text-gray-600"
+                          >
                             <div className="w-1.5 h-1.5 bg-saffron rounded-full" />
                             <span>{responsibility}</span>
                           </li>
@@ -325,12 +389,20 @@ const Team = () => {
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`https://linkedin.com/in/${member.linkedin}`} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={`https://linkedin.com/in/${member.linkedin}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Linkedin className="w-4 h-4" />
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`https://instagram.com/${member.instagram}`} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={`https://instagram.com/${member.instagram}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Instagram className="w-4 h-4" />
                         </a>
                       </Button>
@@ -351,9 +423,12 @@ const Team = () => {
           className="mb-20"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">Committee Directors</h3>
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+              Committee Directors
+            </h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our specialized directors who lead specific areas of ISA's activities and programs.
+              Our specialized directors who lead specific areas of ISA's
+              activities and programs.
             </p>
           </div>
 
@@ -370,27 +445,67 @@ const Team = () => {
                   <CardHeader>
                     <div className="flex items-start space-x-4">
                       <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
-                        {member.name === 'Nysa Jain' ? (
-                          <img src="/nysa.jpeg" alt="Nysa Jain" className="w-full h-full object-cover" />
-                        ) : member.name === 'Tushar Sachan' ? (
-                          <img src="/tushar.jpg" alt="Tushar Sachan" className="w-full h-full object-cover" />
-                        ) : member.name === 'Deepikaa Anjan Kumar' ? (
-                          <img src="/deepika.jpg" alt="Deepikaa Anjan Kumar" className="w-full h-full object-cover" />
-                        ): member.name === 'Manya Shukla' ? (
-                          <img src="/manya.jpeg" alt="Manya Shukla" className="w-full h-full object-cover" />
-                        ): member.name === 'Vatsal Rajeshbhai Kakadiya' ? (
-                          <img src="/vatsal.jpeg" alt="Vatsal Rajeshbhai Kakadiya" className="w-full h-full object-cover" />
-                        ): member.name === 'Prince Sathwara' ? (
-                          <img src="/prince.jpg" alt="Prince Sathwara" className="w-full h-full object-cover" />
-                        ): member.name === 'Sankalp Srinath' ? (
-                          <img src="/sankalp.jpg" alt="Sankalp Srinath" className="w-full h-full object-cover" />
-                        ): member.name === 'Deepak Akundi' ? (
-                          <img src="/deepak.jpg" alt="Deepak Akundi" className="w-full h-full object-cover" />
-                        ): member.name === 'Vaishnavi Mahajan' ? (
-                          <img src="/vaishnavi.jpg" alt="Vaishnavi Mahajan" className="w-full h-full object-cover" />
-                        ): member.name === 'Asmi Kachare' ? (
-                          <img src="/asmi.jpg" alt="Asmi Kachare" className="w-full h-full object-cover" />
-                        ): (
+                        {member.name === "Nysa Jain" ? (
+                          <img
+                            src="/nysa.jpeg"
+                            alt="Nysa Jain"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Tushar Sachan" ? (
+                          <img
+                            src="/tushar.jpg"
+                            alt="Tushar Sachan"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Deepikaa Anjan Kumar" ? (
+                          <img
+                            src="/deepika.jpg"
+                            alt="Deepikaa Anjan Kumar"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Manya Shukla" ? (
+                          <img
+                            src="/manya.jpeg"
+                            alt="Manya Shukla"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Vatsal Rajeshbhai Kakadiya" ? (
+                          <img
+                            src="/vatsal.jpeg"
+                            alt="Vatsal Rajeshbhai Kakadiya"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Prince Sathwara" ? (
+                          <img
+                            src="/prince.jpg"
+                            alt="Prince Sathwara"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Sankalp Srinath" ? (
+                          <img
+                            src="/sankalp.jpg"
+                            alt="Sankalp Srinath"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Deepak Akundi" ? (
+                          <img
+                            src="/deepak.jpg"
+                            alt="Deepak Akundi"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Vaishnavi Mahajan" ? (
+                          <img
+                            src="/vaishnavi.jpg"
+                            alt="Vaishnavi Mahajan"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : member.name === "Asmi Kachare" ? (
+                          <img
+                            src="/asmi.jpg"
+                            alt="Asmi Kachare"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
                           <span className="text-4xl">{member.image}</span>
                         )}
                       </div>
@@ -411,12 +526,17 @@ const Team = () => {
                     <CardDescription className="text-gray-600 text-sm">
                       {member.bio}
                     </CardDescription>
-                    
+
                     <div className="space-y-1">
-                      <h4 className="font-semibold text-gray-800 text-sm">Focus Areas:</h4>
+                      <h4 className="font-semibold text-gray-800 text-sm">
+                        Focus Areas:
+                      </h4>
                       <ul className="space-y-1">
                         {member.responsibilities.map((responsibility, idx) => (
-                          <li key={idx} className="flex items-center space-x-2 text-sm text-gray-600">
+                          <li
+                            key={idx}
+                            className="flex items-center space-x-2 text-sm text-gray-600"
+                          >
                             <div className="w-1 h-1 bg-saffron rounded-full" />
                             <span>{responsibility}</span>
                           </li>
@@ -424,7 +544,12 @@ const Team = () => {
                       </ul>
                     </div>
 
-                    <Button variant="outline" size="sm" className="w-full" asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full"
+                      asChild
+                    >
                       <a href={`mailto:${member.email}`}>
                         <Mail className="w-4 h-4 mr-2" />
                         Contact
@@ -436,38 +561,9 @@ const Team = () => {
             ))}
           </div>
         </motion.div>
-
-        
-
-        {/* Contact Team */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center bg-gradient-to-r from-saffron/10 via-orange/10 to-green/10 rounded-3xl p-12"
-        >
-          <div className="max-w-2xl mx-auto">
-
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">
-              Get in Touch with Our Team
-            </h3>
-            <p className="text-lg text-gray-600 mb-8">
-              Have questions, suggestions, or want to get involved? We'd love to hear from you!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              
-              <Button variant="indianOutline" size="lg">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Join WhatsApp Group
-              </Button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Team
-
+export default Team;

@@ -9,7 +9,6 @@ import {
 } from "./ui/card";
 import { Badge } from "./ui/badge";
 import {
-  Home,
   MapPin,
   Mail,
   Phone,
@@ -94,9 +93,7 @@ function ListingCard({ listing, index }) {
           {(price || created) && (
             <div className="flex flex-wrap items-center gap-2 mt-1">
               {price && (
-                <Badge variant="indian" className="text-sm font-semibold">
-                  {price}/month
-                </Badge>
+                <label className="text-sm font-semibold">{price}/month</label>
               )}
               {created && (
                 <span className="text-xs text-gray-500">{created}</span>
@@ -236,9 +233,6 @@ export default function Leasing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="w-16 h-16 bg-gradient-to-br from-saffron to-orange rounded-full mx-auto mb-6 flex items-center justify-center">
-            <Home className="w-8 h-8 text-white" />
-          </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-3">
             Sublease & Leasing Listings
           </h1>

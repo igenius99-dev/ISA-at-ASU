@@ -32,8 +32,27 @@ const SignInUp = () => {
         setError(error.message);
         return;
       }
-      setError("Sign In successful");
-      navigate("/dashboard");
+      setError("");
+
+      // If the user already has a completed profile, send them to Elections.
+      const userId = data?.user?.id;
+      if (!userId) {
+        navigate("/dashboard", { replace: true });
+        return;
+      }
+
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("name, position, year")
+        .eq("id", userId)
+        .maybeSingle();
+
+      const isProfileComplete =
+        !!profile?.name && !!profile?.position && !!profile?.year;
+
+      navigate(isProfileComplete ? "/dashboard/elections" : "/dashboard", {
+        replace: true,
+      });
     } else {
       setError("");
 
