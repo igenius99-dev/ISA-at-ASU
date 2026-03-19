@@ -261,7 +261,7 @@ const Team = () => {
         >
           <div className="relative overflow-hidden rounded-xl mx-auto max-w-5xl">
             <img
-              src="/team.JPG"
+              src="/team_spring2026.JPG"
               alt="ISA Team"
               className="w-full h-auto max-h-[80vh] object-contain"
             />
@@ -273,14 +273,6 @@ const Team = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Quick Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-16"
-        ></motion.div>
 
         {/* Executive Board */}
         <motion.div
@@ -309,7 +301,7 @@ const Team = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer text-center">
+                <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 group cursor-pointer text-center">
                   <CardHeader
                     className={`text-center flex flex-col items-center ${member.name === "Deepak Akundi" ? "min-h-[180px]" : "min-h-[160px]"} py-4`}
                   >
@@ -352,9 +344,7 @@ const Team = () => {
                       <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-saffron transition-colors">
                         {member.name}
                       </CardTitle>
-                      <Badge variant="secondary" className="text-xs mt-1">
-                        {member.position}
-                      </Badge>
+                      <label className="text-sm mt-1">{member.position}</label>
                       <div className="text-sm text-gray-600">
                         {member.major} • {member.year}
                       </div>
@@ -441,7 +431,7 @@ const Team = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border border-gray-200 group cursor-pointer">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 group cursor-pointer">
                   <CardHeader>
                     <div className="flex items-start space-x-4">
                       <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
@@ -513,9 +503,9 @@ const Team = () => {
                         <CardTitle className="text-lg font-bold text-gray-800 group-hover:text-saffron transition-colors">
                           {member.name}
                         </CardTitle>
-                        <Badge variant="secondary" className="text-xs mt-1">
+                        <label className="text-sm mt-1">
                           {member.position}
-                        </Badge>
+                        </label>
                         <div className="text-sm text-gray-600 mt-1">
                           {member.major} • {member.year}
                         </div>
@@ -543,23 +533,30 @@ const Team = () => {
                         ))}
                       </ul>
                     </div>
-
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full"
-                      asChild
-                    >
-                      <a href={`mailto:${member.email}`}>
-                        <Mail className="w-4 h-4 mr-2" />
-                        Contact
-                      </a>
-                    </Button>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        {/* Officers */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">Officers</h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our officers are integral to ISA’s operations, contributing to
+              event execution, outreach, and ensuring everything runs smoothly
+              behind the scenes.
+            </p>
+          </div>
+          <div>Coming soon :)</div>
         </motion.div>
       </div>
     </section>
