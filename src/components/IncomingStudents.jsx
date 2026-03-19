@@ -422,34 +422,6 @@ const IncomingStudents = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-center bg-gradient-to-r from-saffron/10 via-orange/10 to-green/10 rounded-3xl p-12"
-        >
-          <div className="max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">
-              Ready to Start Your ASU Journey?
-            </h3>
-            <p className="text-lg text-gray-600 mb-8">
-              Join our community of Indian students and make the most of your
-              time at ASU. We're here to support you every step of the way.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="indian" size="lg" className="group">
-                Join ISA Community
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="indianOutline" size="lg">
-                Download Student Guide
-                <Download className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

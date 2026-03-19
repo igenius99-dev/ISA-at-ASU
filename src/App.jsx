@@ -19,6 +19,7 @@ import Dashboard from "./components/Dashboard";
 import Election from "./components/election";
 import SplashCursor from "./components/ui/SplashCursor";
 import Faq from "./components/Faq";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -41,9 +42,9 @@ function App() {
             />
             <Route path="/contact" element={<Contact />} />
             <Route path="/incoming" element={<IncomingStudents />} />
-            <Route path="/current" element={<CurrentStudents />} />
             <Route path="/team" element={<Team />} />
             <Route path="/housing" element={<Housing />} />
+            <Route path="*" element={<NotFound />} />
             <Route path="/leasing" element={<Leasing />} />
             <Route path="/packing-checklist" element={<PackingChecklist />} />
             <Route path="/login" element={<SignInUp />} />
