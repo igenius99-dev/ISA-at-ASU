@@ -192,9 +192,7 @@ const IncomingStudents = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                     className={`flex items-center space-x-3 p-3 rounded-lg ${
-                      item.completed
-                        ? "bg-green-50 border border-green-200"
-                        : "bg-gray-50 border border-gray-200"
+                      item.completed ? "bg-green-50 " : "bg-gray-50 "
                     }`}
                   >
                     <div
@@ -388,7 +386,7 @@ const IncomingStudents = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border border-gray-200">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 ">
                   <CardHeader>
                     <CardTitle className="text-lg font-bold text-gray-800 mb-2">
                       {contact.name}

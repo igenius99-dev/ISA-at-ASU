@@ -13,6 +13,7 @@ const Header = () => {
   const location = useLocation();
 
   async function handleLogout() {
+    setIsMenuOpen(false);
     const { error } = await supabase.auth.signOut();
 
     if (error) {
@@ -176,7 +177,12 @@ const Header = () => {
 
               <div className="pt-4">
                 {session === null ? (
-                  <Button variant="indian" size="sm" className="w-full">
+                  <Button
+                    variant="indian"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     <Link to="/login"> Team login</Link>
                   </Button>
                 ) : (
