@@ -316,7 +316,7 @@ const Team = () => {
                     <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center mb-4">
                       {member.name === "Pratham Hegde" ? (
                         <img
-                          src="/pratham.jpeg"
+                          src="https://tfiytxwskpdwymbtxoru.supabase.co/storage/v1/object/public/avatars/fc770879-13c7-4fde-96af-4f9bcd1891d1/avatar.jpeg"
                           alt="Pratham Hegde"
                           className="w-full h-full object-cover"
                         />
@@ -453,7 +453,7 @@ const Team = () => {
                           />
                         ) : member.name === "Tushar Sachan" ? (
                           <img
-                            src="/tushar.jpg"
+                            src="https://tfiytxwskpdwymbtxoru.supabase.co/storage/v1/object/public/avatars/c03ba364-2f85-4596-87fe-4a5d44d1c295/avatar.jpg"
                             alt="Tushar Sachan"
                             className="w-full h-full object-cover"
                           />

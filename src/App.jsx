@@ -17,10 +17,13 @@ import "./index.css";
 import ProtectedRoute from "./lib/ProtectedRoute";
 import Dashboard from "./components/Dashboard";
 import Election from "./components/election";
+import SplashCursor from "./components/ui/SplashCursor";
+import Faq from "./components/Faq";
 
 function App() {
   return (
     <Router>
+      <SplashCursor />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-green-50">
         <Header />
         <ScrollToTop />
@@ -32,7 +35,7 @@ function App() {
                 <>
                   <Hero />
                   <About />
-                  <Events />
+                  <Faq />
                 </>
               }
             />
