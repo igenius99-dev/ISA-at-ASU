@@ -96,7 +96,15 @@ const Hero = () => {
                   alt="Holi poster"
                   className="w-[500px] h-auto rounded-2xl"
                 />
-                <button className="absolute inset-0 cursor-pointer bg-transparent"></button>
+                <button
+                  className="absolute inset-0 cursor-pointer bg-transparent"
+                  onClick={(e) =>
+                    window.open(
+                      "https://sundevilcentral.eoss.asu.edu/isaasu/rsvp_boot?id=391371",
+                      "_blank",
+                    )
+                  }
+                ></button>
               </div>
             </div>
 
