@@ -76,6 +76,9 @@ const SignInUp = () => {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+          emailRedirectTo: "https://isa-hazel.vercel.app/dashboard",
+        },
       });
 
       if (error) {
