@@ -8,7 +8,7 @@ import {
   CardDescription,
 } from "./ui/card";
 import { Button } from "./ui/button";
-import { Mail, Lock } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { supabase } from "../lib/SupabaseClient";
 import { useNavigate } from "react-router-dom";
 
@@ -16,23 +16,40 @@ const SignInUp = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("error"); // "error" | "success"
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: wire up Supabase auth
+
+    if (isSignUp) {
+      if (password.length < 6) {
+        setMessageType("error");
+        setMessage("Password must be at least 6 characters.");
+        return;
+      }
+      if (password !== confirmPassword) {
+        setMessageType("error");
+        setMessage("Passwords do not match.");
+        return;
+      }
+    }
+
     if (!isSignUp) {
-      setError("");
+      setMessage("");
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
       if (error) {
-        setError(error.message);
+        setMessageType("error");
+        setMessage(error.message);
         return;
       }
-      setError("");
 
       // If the user already has a completed profile, send them to Elections.
       const userId = data?.user?.id;
@@ -54,7 +71,7 @@ const SignInUp = () => {
         replace: true,
       });
     } else {
-      setError("");
+      setMessage("");
 
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -62,11 +79,13 @@ const SignInUp = () => {
       });
 
       if (error) {
-        setError(error.message);
+        setMessageType("error");
+        setMessage(error.message);
         return;
       }
 
-      setError("Signup successful. Check your email.");
+      setMessageType("success");
+      setMessage("Signup successful. Check your email.");
     }
   };
 
@@ -102,7 +121,11 @@ const SignInUp = () => {
               <div className="flex rounded-lg bg-gradient-to-br from-saffron/5 to-orange/5 p-1 mb-8">
                 <button
                   type="button"
-                  onClick={() => setIsSignUp(false)}
+                  onClick={() => {
+                    setIsSignUp(false);
+                    setConfirmPassword("");
+                    setMessage("");
+                  }}
                   className={`flex-1 py-2.5 text-sm font-semibold rounded-md transition-all duration-300 ${
                     !isSignUp
                       ? "bg-gradient-to-r from-saffron to-orange text-white shadow-md"
@@ -113,7 +136,10 @@ const SignInUp = () => {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setIsSignUp(true)}
+                  onClick={() => {
+                    setIsSignUp(true);
+                    setMessage("");
+                  }}
                   className={`flex-1 py-2.5 text-sm font-semibold rounded-md transition-all duration-300 ${
                     isSignUp
                       ? "bg-gradient-to-r from-saffron to-orange text-white shadow-md"
@@ -158,15 +184,62 @@ const SignInUp = () => {
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       id="password"
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
-                      className="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-saffron/50 focus:border-saffron transition-all duration-200"
+                      className="w-full pl-11 pr-11 py-3 rounded-lg border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-saffron/50 focus:border-saffron transition-all duration-200"
                     />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((v) => !v)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                      tabIndex={-1}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="w-5 h-5" />
+                      ) : (
+                        <Eye className="w-5 h-5" />
+                      )}
+                    </button>
                   </div>
                 </div>
+
+                {isSignUp && (
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="confirmPassword"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Confirm Password
+                    </label>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        id="confirmPassword"
+                        type={showConfirmPassword ? "text" : "password"}
+                        placeholder="Re-enter your password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                        className="w-full pl-11 pr-11 py-3 rounded-lg border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-saffron/50 focus:border-saffron transition-all duration-200"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowConfirmPassword((v) => !v)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                        tabIndex={-1}
+                      >
+                        {showConfirmPassword ? (
+                          <EyeOff className="w-5 h-5" />
+                        ) : (
+                          <Eye className="w-5 h-5" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 <Button
                   type="submit"
@@ -177,7 +250,17 @@ const SignInUp = () => {
                 >
                   {isSignUp ? "Create Account" : "Sign In"}
                 </Button>
-                <div>{error}</div>
+                {message && (
+                  <p
+                    className={`text-sm rounded-lg px-3 py-2 border ${
+                      messageType === "success"
+                        ? "text-green-700 bg-green-50 border-green-200"
+                        : "text-red-600 bg-red-50 border-red-200"
+                    }`}
+                  >
+                    {message}
+                  </p>
+                )}
               </form>
 
               {/* Footer text */}
