@@ -7,28 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import {
-  GraduationCap,
-  Home,
-  Plane,
-  BookOpen,
-  Users,
-  MapPin,
-  Phone,
-  Mail,
-  Calendar,
-  CheckCircle,
-  ArrowRight,
-  Globe,
-  Shield,
-  Heart,
-  Star,
-  FileText,
-  Download,
-  ExternalLink,
-} from "lucide-react";
+import { Home, BookOpen, Users, Phone, Mail, CheckCircle } from "lucide-react";
 
 const IncomingStudents = () => {
   const preArrivalChecklist = [
@@ -39,7 +19,7 @@ const IncomingStudents = () => {
     { item: "Complete ASU orientation requirements", completed: false },
     { item: "Set up ASU email and MyASU account", completed: false },
     { item: "Register for classes", completed: false },
-    { item: "Join ISA WhatsApp groups", completed: false },
+    { item: "Go Sun Devils!", completed: false },
   ];
 
   const essentialResources = [
@@ -96,14 +76,14 @@ const IncomingStudents = () => {
   const importantContacts = [
     {
       name: "ASU International Students Office",
-      phone: "+1 (480) 965-9011",
-      email: "international@asu.edu",
+      phone: "+1 (480) 727-7125",
+      email: "internationalscholars@asu.edu",
       description: "Primary contact for visa and immigration matters",
     },
     {
       name: "ISA Executive Board",
-      phone: "+1 (480) 123-4567",
-      email: "executive@isa-asu.com",
+      phone: "Contact",
+      email: "phegde9@asu.edu",
       description: "Student leadership for community support",
     },
     {
@@ -113,9 +93,9 @@ const IncomingStudents = () => {
       description: "On-campus housing and accommodation",
     },
     {
-      name: "ASU Academic Advising",
-      phone: "+1 (480) 965-6506",
-      email: "advising@asu.edu",
+      name: "ASU Engineering Academic Advising",
+      phone: "+1 (480) 965-1726",
+      email: "engineering@asu.edu",
       description: "Course planning and academic guidance",
     },
   ];
@@ -367,7 +347,7 @@ const IncomingStudents = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-20"
+          className="mb-2"
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">
@@ -399,7 +379,7 @@ const IncomingStudents = () => {
                     <div className="flex items-center space-x-3">
                       <Phone className="w-4 h-4 text-saffron" />
                       <a
-                        href={`tel:${contact.phone}`}
+                        href={`${contact.name === "ISA Executive Board" ? "/contact" : `tel:${contact.phone}`}`}
                         className="text-gray-700 hover:text-saffron transition-colors"
                       >
                         {contact.phone}

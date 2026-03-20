@@ -65,11 +65,11 @@ const Team = () => {
       instagram: "asmi_kachare_asu",
     },
     {
-      name: "Vaishnavi Mahajan",
+      name: "",
       position: "Treasurer",
-      major: "Computer Science",
-      year: "Senior",
-      image: "👩‍💻",
+      major: "",
+      year: "",
+      image: "",
       bio: "Managing ISA's finances and budget planning. Ensuring financial transparency and responsible spending of Money.",
       responsibilities: [
         "Budget management",
@@ -112,10 +112,10 @@ const Team = () => {
 
   const committeeHeads = [
     {
-      name: "Prince Sathwara",
+      name: "",
       position: "Director of Administration",
-      major: "Construction Management",
-      year: "Senior",
+      major: "",
+      year: "",
       bio: "Oversees administrative processes and organizational efficiency.",
       responsibilities: [
         "Operations",
@@ -125,19 +125,19 @@ const Team = () => {
       email: "admin@isa-asu.com",
     },
     {
-      name: "Vatsal Rajeshbhai Kakadiya",
+      name: "",
       position: "Director of Events",
-      major: "CS and Eng. Management",
-      year: "Junior",
+      major: "",
+      year: "",
       bio: "Leads planning and execution of ISA events and cultural programs.",
       responsibilities: ["Event planning", "Logistics", "Vendor coordination"],
       email: "events@isa-asu.com",
     },
     {
-      name: "Manya Shukla",
+      name: "",
       position: "Director of Finance",
-      major: "Computer Science",
-      year: "Senior",
+      major: "",
+      year: "",
       bio: "Manages budgeting, reimbursements, and financial compliance.",
       responsibilities: ["Budgeting", "Expense tracking", "Sponsorships"],
       email: "finance@isa-asu.com",
@@ -318,10 +318,10 @@ const Team = () => {
                           alt="Asmi Kachare"
                           className="w-full h-full object-cover"
                         />
-                      ) : member.name === "Vaishnavi Mahajan" ? (
+                      ) : member.name === "" ? (
                         <img
-                          src="/vaishnavi.jpg"
-                          alt="Vaishnavi Mahajan"
+                          src=""
+                          alt=""
                           className="w-full h-full object-cover"
                         />
                       ) : member.name === "Deepak Akundi" ? (
@@ -453,46 +453,22 @@ const Team = () => {
                             alt="Deepikaa Anjan Kumar"
                             className="w-full h-full object-cover"
                           />
-                        ) : member.name === "Manya Shukla" ? (
+                        ) : member.name === "" ? (
                           <img
-                            src="/manya.jpeg"
-                            alt="Manya Shukla"
+                            src=""
+                            alt=""
                             className="w-full h-full object-cover"
                           />
-                        ) : member.name === "Vatsal Rajeshbhai Kakadiya" ? (
+                        ) : member.name === "" ? (
                           <img
-                            src="/vatsal.jpeg"
-                            alt="Vatsal Rajeshbhai Kakadiya"
+                            src=""
+                            alt=""
                             className="w-full h-full object-cover"
                           />
-                        ) : member.name === "Prince Sathwara" ? (
+                        ) : member.name === "" ? (
                           <img
-                            src="/prince.jpg"
-                            alt="Prince Sathwara"
-                            className="w-full h-full object-cover"
-                          />
-                        ) : member.name === "Sankalp Srinath" ? (
-                          <img
-                            src="/sankalp.jpg"
-                            alt="Sankalp Srinath"
-                            className="w-full h-full object-cover"
-                          />
-                        ) : member.name === "Deepak Akundi" ? (
-                          <img
-                            src="/deepak.jpg"
-                            alt="Deepak Akundi"
-                            className="w-full h-full object-cover"
-                          />
-                        ) : member.name === "Vaishnavi Mahajan" ? (
-                          <img
-                            src="/vaishnavi.jpg"
-                            alt="Vaishnavi Mahajan"
-                            className="w-full h-full object-cover"
-                          />
-                        ) : member.name === "Asmi Kachare" ? (
-                          <img
-                            src="/asmi.jpg"
-                            alt="Asmi Kachare"
+                            src=""
+                            alt=""
                             className="w-full h-full object-cover"
                           />
                         ) : (

@@ -45,7 +45,7 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/housing" element={<Housing />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/leasing" element={<Leasing />} />
+
             <Route path="/packing-checklist" element={<PackingChecklist />} />
             <Route path="/login" element={<SignInUp />} />
             <Route
