@@ -57,12 +57,10 @@ export default function Faq() {
             >
               {faqItems.map((Item, Index) => {
                 return (
-                  <>
-                    <AccordionItem value={`index${Index}`}>
-                      <AccordionTrigger>{Item.question}</AccordionTrigger>
-                      <AccordionContent>{Item.answer}</AccordionContent>
-                    </AccordionItem>
-                  </>
+                  <AccordionItem key={Index} value={`index${Index}`}>
+                    <AccordionTrigger>{Item.question}</AccordionTrigger>
+                    <AccordionContent>{Item.answer}</AccordionContent>
+                  </AccordionItem>
                 );
               })}
             </Accordion>
