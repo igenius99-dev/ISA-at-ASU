@@ -45,6 +45,7 @@ const SignInUp = () => {
         email,
         password,
       });
+
       if (error) {
         setMessageType("error");
         setMessage(error.message);

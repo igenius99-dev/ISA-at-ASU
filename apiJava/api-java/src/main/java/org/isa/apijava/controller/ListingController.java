@@ -1,10 +1,8 @@
-package org.isa.apijava.contoller;
+package org.isa.apijava.controller;
 
 import org.isa.apijava.entity.SubleaseListing;
 import org.isa.apijava.service.ListingService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,10 @@ public class ListingController {
     @GetMapping("/listings")
     public List<SubleaseListing> allListing(){
         return service.viewAll();
+    }
+
+    @PostMapping("/listings")
+    public void postListing(@RequestBody SubleaseListing listing){
+        service.postLeasingListing(listing);
     }
 }

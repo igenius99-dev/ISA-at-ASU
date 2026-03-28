@@ -20,6 +20,7 @@ import Election from "./components/election";
 import SplashCursor from "./components/ui/SplashCursor";
 import Faq from "./components/Faq";
 import NotFound from "./components/NotFound";
+import Statistics from "./components/Statistics";
 
 function App() {
   return (
@@ -61,6 +62,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Election />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/statistics"
+              element={
+                <ProtectedRoute>
+                  <Statistics />
                 </ProtectedRoute>
               }
             />

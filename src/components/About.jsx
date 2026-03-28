@@ -7,17 +7,10 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Badge } from "./ui/badge";
-import {
-  Users,
-  Heart,
-  Target,
-  Eye,
-  Star,
-  Globe,
-  BookOpen,
-  Handshake,
-} from "lucide-react";
+import { Users, Heart, Target, Eye, Globe } from "lucide-react";
 import Masonry from "./ui/Masonry";
+import { useEffect } from "react";
+import axios from "axios";
 
 const items = [
   {

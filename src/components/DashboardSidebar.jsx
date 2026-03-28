@@ -1,7 +1,17 @@
 import { NavLink } from "react-router-dom";
-import { User, Vote } from "lucide-react";
+import { User, Vote, BarChart3 } from "lucide-react";
+import { useAuth } from "../lib/AuthContextSupabase";
 
 export default function DashboardSidebar({ profile, userEmail }) {
+  const { isAdmin } = useAuth();
+
+  const linkClass = ({ isActive }) =>
+    `flex items-center gap-3 px-3 py-2 rounded-xl border transition-colors ${
+      isActive
+        ? "bg-white shadow-sm border-saffron/30 text-saffron"
+        : "bg-white/50 hover:bg-white border-gray-200 text-gray-700"
+    }`;
+
   return (
     <aside className="hidden md:block w-72 flex-shrink-0 sticky top-24 h-[calc(100vh-6rem)]">
       <div className="h-full bg-white/80 backdrop-blur-sm border-r border-gray-200/50 flex flex-col">
@@ -29,34 +39,22 @@ export default function DashboardSidebar({ profile, userEmail }) {
         </div>
 
         <nav className="flex-1 px-4 py-5 flex flex-col gap-2">
-          <NavLink
-            to="/dashboard"
-            end
-            className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 rounded-xl border transition-colors ${
-                isActive
-                  ? "bg-white shadow-sm border-saffron/30 text-saffron"
-                  : "bg-white/50 hover:bg-white border-gray-200 text-gray-700"
-              }`
-            }
-          >
+          <NavLink to="/dashboard" end className={linkClass}>
             <User className="w-4 h-4" />
             <span className="text-sm font-semibold">Profile</span>
           </NavLink>
 
-          <NavLink
-            to="/dashboard/elections"
-            className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 rounded-xl border transition-colors ${
-                isActive
-                  ? "bg-white shadow-sm border-saffron/30 text-saffron"
-                  : "bg-white/50 hover:bg-white border-gray-200 text-gray-700"
-              }`
-            }
-          >
+          <NavLink to="/dashboard/elections" className={linkClass}>
             <Vote className="w-4 h-4" />
             <span className="text-sm font-semibold">Elections</span>
           </NavLink>
+
+          {isAdmin && (
+            <NavLink to="/dashboard/statistics" className={linkClass}>
+              <BarChart3 className="w-4 h-4" />
+              <span className="text-sm font-semibold">Statistics</span>
+            </NavLink>
+          )}
         </nav>
       </div>
     </aside>
