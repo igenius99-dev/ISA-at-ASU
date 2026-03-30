@@ -16,11 +16,11 @@ import SignInUp from "./components/SignInUp";
 import "./index.css";
 import ProtectedRoute from "./lib/ProtectedRoute";
 import Dashboard from "./components/Dashboard";
-import Election from "./components/election";
 import SplashCursor from "./components/ui/SplashCursor";
 import Faq from "./components/Faq";
 import NotFound from "./components/NotFound";
 import Statistics from "./components/Statistics";
+import ElectionPlaceholder from "./components/ElectionPlaceholder";
 
 function App() {
   return (
@@ -61,7 +61,7 @@ function App() {
               path="/dashboard/elections"
               element={
                 <ProtectedRoute>
-                  <Election />
+                  <ElectionPlaceholder />
                 </ProtectedRoute>
               }
             />
