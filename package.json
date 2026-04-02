@@ -14,7 +14,7 @@
     "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
     "vercel-build": "npm run build"
   },
-  "homepage": "https://igenius99-dev.github.io/ISA-at-ASU",
+  "homepage": "https://isa-hazel.vercel.app",
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@supabase/supabase-js": "^2.98.0",

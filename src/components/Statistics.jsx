@@ -84,6 +84,7 @@ export default function Statistics() {
           setError(`Failed to load submissions (HTTP ${res.status})`);
         } else {
           const data = await res.json();
+          console.log(data);
           setSubmissions(normalizeSubmissions(data));
         }
       } catch (err) {
@@ -172,12 +173,6 @@ export default function Statistics() {
                               </div>
                             </CardHeader>
                             <CardContent className="space-y-4 text-sm text-gray-600">
-                              <div>
-                                <p className="text-xs font-medium uppercase tracking-wide text-gray-400 mb-1">
-                                  Submitted
-                                </p>
-                                <p>{formatDateTime(row.createdAt)}</p>
-                              </div>
                               {positions.length > 0 && (
                                 <div>
                                   <p className="text-xs font-medium uppercase tracking-wide text-gray-400 mb-2">

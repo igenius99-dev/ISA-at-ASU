@@ -52,7 +52,7 @@ export default function DashboardSidebar({ profile, userEmail }) {
           {isAdmin && (
             <NavLink to="/dashboard/statistics" className={linkClass}>
               <BarChart3 className="w-4 h-4" />
-              <span className="text-sm font-semibold">Statistics</span>
+              <span className="text-sm font-semibold">Campaign</span>
             </NavLink>
           )}
         </nav>
