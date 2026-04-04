@@ -68,7 +68,7 @@ const SignInUp = () => {
       const isProfileComplete =
         !!profile?.name && !!profile?.position && !!profile?.year;
 
-      navigate(isProfileComplete ? "/dashboard/elections" : "/dashboard", {
+      navigate(isProfileComplete ? "/dashboard/voting" : "/dashboard", {
         replace: true,
       });
     } else {
