@@ -93,7 +93,11 @@ export default function Voting() {
 
         if (candidatesRes.ok) {
           const candidatesData = await candidatesRes.json();
-          setPositions(sortPositions(candidatesData));
+          const HIDDEN_POSITIONS = ["JOINT_SECRETARY", "TREASURER"];
+          const filtered = candidatesData.filter(
+            (p) => !HIDDEN_POSITIONS.includes(p.code),
+          );
+          setPositions(sortPositions(filtered));
         } else {
           setError("Failed to load candidates. Please refresh the page.");
         }
