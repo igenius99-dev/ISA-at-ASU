@@ -140,7 +140,7 @@ export default function Dashboard() {
   };
 
   return (
-    <section className="min-h-[calc(100vh)] pt-24 bg-gradient-to-br from-orange-50 via-white to-green-50">
+    <section className="min-h-[calc(100vh)] pt-24 pb-20 md:pb-0 bg-gradient-to-br from-orange-50 via-white to-green-50">
       <div className="container mx-auto px-4 flex gap-6 items-start">
         <DashboardSidebar profile={profileForSidebar} userEmail={user?.email} />
 
