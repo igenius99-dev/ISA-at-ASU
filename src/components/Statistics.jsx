@@ -14,7 +14,7 @@ import {
 } from "./ui/card";
 import { Badge } from "./ui/badge";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8080/api";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 function normalizeSubmissions(data) {
   if (!data) return [];
