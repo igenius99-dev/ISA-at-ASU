@@ -10,5 +10,5 @@ import java.util.UUID;
 public interface ElectionSubmissionRepository extends JpaRepository<ElectionSubmission, UUID> {
     Optional<ElectionSubmission> findByUserId(UUID userId);
     List<ElectionSubmission> findAllByOrderByCreatedAtDesc();
-
+    List<ElectionSubmission> findByStatus(String status);
 }

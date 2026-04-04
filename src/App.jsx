@@ -21,6 +21,7 @@ import Faq from "./components/Faq";
 import NotFound from "./components/NotFound";
 import Statistics from "./components/Statistics";
 import ElectionPlaceholder from "./components/ElectionPlaceholder";
+import Voting from "./components/Voting";
 
 function App() {
   return (
@@ -57,11 +58,12 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
-              path="/dashboard/elections"
+              path="/dashboard/voting"
               element={
                 <ProtectedRoute>
-                  <ElectionPlaceholder />
+                  <Voting />
                 </ProtectedRoute>
               }
             />

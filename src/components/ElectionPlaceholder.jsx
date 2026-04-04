@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Vote, ClipboardCheck, Clock } from "lucide-react";
 import { supabase } from "../lib/SupabaseClient";
 import { useAuth } from "../lib/AuthContextSupabase";
 import DashboardSidebar from "./DashboardSidebar";
@@ -19,6 +18,12 @@ export default function ElectionPlaceholder() {
         .then(({ data }) => setProfile(data));
     }
   }, [user]);
+
+  async function print() {
+    const { data } = await supabase.auth.getSession();
+    console.log(data.session.access_token);
+  }
+  print();
 
   return (
     <section className="min-h-[calc(100vh)] pt-24 bg-gradient-to-br from-orange-50 via-white to-green-50">
