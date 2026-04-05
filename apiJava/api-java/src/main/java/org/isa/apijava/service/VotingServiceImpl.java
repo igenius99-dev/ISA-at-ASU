@@ -1,6 +1,7 @@
 package org.isa.apijava.service;
 
 import jakarta.transaction.Transactional;
+import org.isa.apijava.dto.AdminVoteDetailResponse;
 import org.isa.apijava.dto.VoteRequest;
 import org.isa.apijava.dto.VoteStatusResponse;
 import org.isa.apijava.dto.VotingPositionResponse;
@@ -10,6 +11,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,19 +22,22 @@ public class VotingServiceImpl implements VotingService {
     private final ElectionSubmissionPositionRepository electionSubmissionPositionRepository;
     private final VoteSubmissionRepository voteSubmissionRepository;
     private final VoteRepository voteRepository;
+    private final ProfileRepository profileRepository;
 
     public VotingServiceImpl(
             PositionRepository positionRepository,
             ElectionSubmissionRepository electionSubmissionRepository,
             ElectionSubmissionPositionRepository electionSubmissionPositionRepository,
             VoteSubmissionRepository voteSubmissionRepository,
-            VoteRepository voteRepository
+            VoteRepository voteRepository,
+            ProfileRepository profileRepository
     ) {
         this.positionRepository = positionRepository;
         this.electionSubmissionRepository = electionSubmissionRepository;
         this.electionSubmissionPositionRepository = electionSubmissionPositionRepository;
         this.voteSubmissionRepository = voteSubmissionRepository;
         this.voteRepository = voteRepository;
+        this.profileRepository = profileRepository;
     }
 
     @Override
@@ -141,5 +146,73 @@ public class VotingServiceImpl implements VotingService {
         UUID userId = UUID.fromString(jwt.getSubject());
         boolean hasVoted = voteSubmissionRepository.existsByUserId(userId);
         return new VoteStatusResponse(hasVoted);
+    }
+
+    @Override
+    public List<AdminVoteDetailResponse> getAllVoteDetails() {
+        List<VoteSubmission> allSubmissions = voteSubmissionRepository.findAll();
+        if (allSubmissions.isEmpty()) {
+            return List.of();
+        }
+
+        List<Long> submissionIds = allSubmissions.stream()
+                .map(VoteSubmission::getId)
+                .toList();
+
+        List<Vote> allVotes = voteRepository.findByVoteSubmissionIdIn(submissionIds);
+
+        Map<Long, List<Vote>> votesBySubmission = allVotes.stream()
+                .collect(Collectors.groupingBy(Vote::getVoteSubmissionId));
+
+        Set<UUID> voterUserIds = allSubmissions.stream()
+                .map(VoteSubmission::getUserId)
+                .collect(Collectors.toSet());
+        Map<UUID, Profile> profilesByUserId = profileRepository.findAllById(voterUserIds)
+                .stream()
+                .collect(Collectors.toMap(Profile::getId, Function.identity()));
+
+        Map<Long, Position> positionsById = positionRepository.findAll()
+                .stream()
+                .collect(Collectors.toMap(Position::getId, Function.identity()));
+
+        Set<UUID> candidateSubIds = allVotes.stream()
+                .map(Vote::getCandidateSubmissionId)
+                .collect(Collectors.toSet());
+        Map<UUID, ElectionSubmission> candidatesById = electionSubmissionRepository.findAllById(candidateSubIds)
+                .stream()
+                .collect(Collectors.toMap(ElectionSubmission::getId, Function.identity()));
+
+        return allSubmissions.stream()
+                .map(submission -> {
+                    Profile profile = profilesByUserId.get(submission.getUserId());
+                    String voterName = profile != null ? profile.getName() : null;
+                    String voterEmail = profile != null ? profile.getEmail() : null;
+
+                    List<Vote> votes = votesBySubmission.getOrDefault(submission.getId(), List.of());
+
+                    List<AdminVoteDetailResponse.VoteChoice> choices = votes.stream()
+                            .map(vote -> {
+                                Position pos = positionsById.get(Long.valueOf(vote.getPositionId()));
+                                ElectionSubmission candidate = candidatesById.get(vote.getCandidateSubmissionId());
+
+                                return new AdminVoteDetailResponse.VoteChoice(
+                                        pos != null ? pos.getId() : Long.valueOf(vote.getPositionId()),
+                                        pos != null ? pos.getName() : "Unknown",
+                                        pos != null ? pos.getCode() : "UNKNOWN",
+                                        candidate != null ? candidate.getFullName() : "Unknown",
+                                        vote.getCandidateSubmissionId()
+                                );
+                            })
+                            .toList();
+
+                    return new AdminVoteDetailResponse(
+                            submission.getUserId(),
+                            voterName,
+                            voterEmail,
+                            submission.getCreatedAt(),
+                            choices
+                    );
+                })
+                .toList();
     }
 }

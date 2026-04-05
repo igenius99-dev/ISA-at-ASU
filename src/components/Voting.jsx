@@ -56,12 +56,6 @@ export default function Voting() {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  async function print() {
-    const { data } = await supabase.auth.getSession();
-    console.log(data.session.access_token);
-  }
-  print();
-
   useEffect(() => {
     if (!user || !session) return;
 

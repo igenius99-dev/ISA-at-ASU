@@ -22,6 +22,7 @@ import NotFound from "./components/NotFound";
 import Statistics from "./components/Statistics";
 import ElectionPlaceholder from "./components/ElectionPlaceholder";
 import Voting from "./components/Voting";
+import AdminVotes from "./components/AdminVotes";
 
 function App() {
   return (
@@ -72,6 +73,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Statistics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/admin-votes"
+              element={
+                <ProtectedRoute>
+                  <AdminVotes />
                 </ProtectedRoute>
               }
             />

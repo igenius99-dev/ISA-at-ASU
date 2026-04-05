@@ -2,11 +2,11 @@ package org.isa.apijava.controller;
 
 
 import org.isa.apijava.dto.AdminResponse;
-import org.isa.apijava.entity.Role;
+import org.isa.apijava.dto.AdminVoteDetailResponse;
 import org.isa.apijava.service.UserService;
+import org.isa.apijava.service.VotingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,9 +19,11 @@ import java.util.List;
 public class AdminController {
 
     private final UserService userService;
+    private final VotingService votingService;
 
-    public AdminController(UserService userService) {
+    public AdminController(UserService userService, VotingService votingService) {
         this.userService = userService;
+        this.votingService = votingService;
     }
 
     @GetMapping("/submissions")
@@ -30,4 +32,9 @@ public class AdminController {
         return ResponseEntity.ok(userService.getAllUserSubmissions());
     }
 
+    @GetMapping("/votes")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<List<AdminVoteDetailResponse>> getAllVoteDetails() {
+        return ResponseEntity.ok(votingService.getAllVoteDetails());
+    }
 }

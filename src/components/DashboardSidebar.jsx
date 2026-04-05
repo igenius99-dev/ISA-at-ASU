@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { User, Vote, BarChart3, CheckSquare } from "lucide-react";
+import { User, Vote, BarChart3, CheckSquare, ClipboardList } from "lucide-react";
 import { useAuth } from "../lib/AuthContextSupabase";
 
 export default function DashboardSidebar({ profile, userEmail }) {
@@ -21,7 +21,10 @@ export default function DashboardSidebar({ profile, userEmail }) {
     { to: "/dashboard", end: true, icon: User, label: "Profile" },
     { to: "/dashboard/voting", icon: CheckSquare, label: "Voting" },
     ...(isAdmin
-      ? [{ to: "/dashboard/statistics", icon: BarChart3, label: "Campaign" }]
+      ? [
+          { to: "/dashboard/statistics", icon: BarChart3, label: "Campaign" },
+          { to: "/dashboard/admin-votes", icon: ClipboardList, label: "Vote Audit" },
+        ]
       : []),
   ];
 
