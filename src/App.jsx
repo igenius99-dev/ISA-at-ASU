@@ -61,14 +61,6 @@ function App() {
             />
 
             <Route
-              path="/dashboard/voting"
-              element={
-                <ProtectedRoute>
-                  <Voting />
-                </ProtectedRoute>
-              }
-            />
-            <Route
               path="/dashboard/statistics"
               element={
                 <ProtectedRoute>

@@ -1,5 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { User, Vote, BarChart3, CheckSquare, ClipboardList } from "lucide-react";
+import {
+  User,
+  Vote,
+  BarChart3,
+  CheckSquare,
+  ClipboardList,
+} from "lucide-react";
 import { useAuth } from "../lib/AuthContextSupabase";
 
 export default function DashboardSidebar({ profile, userEmail }) {
@@ -19,11 +25,14 @@ export default function DashboardSidebar({ profile, userEmail }) {
 
   const links = [
     { to: "/dashboard", end: true, icon: User, label: "Profile" },
-    { to: "/dashboard/voting", icon: CheckSquare, label: "Voting" },
     ...(isAdmin
       ? [
           { to: "/dashboard/statistics", icon: BarChart3, label: "Campaign" },
-          { to: "/dashboard/admin-votes", icon: ClipboardList, label: "Vote Audit" },
+          {
+            to: "/dashboard/admin-votes",
+            icon: ClipboardList,
+            label: "Vote Audit",
+          },
         ]
       : []),
   ];
@@ -60,12 +69,7 @@ export default function DashboardSidebar({ profile, userEmail }) {
 
           <nav className="flex-1 px-4 py-5 flex flex-col gap-2">
             {links.map(({ to, end, icon: Icon, label }) => (
-              <NavLink
-                key={to}
-                to={to}
-                end={end}
-                className={sidebarLinkClass}
-              >
+              <NavLink key={to} to={to} end={end} className={sidebarLinkClass}>
                 <Icon className="w-4 h-4" />
                 <span className="text-sm font-semibold">{label}</span>
               </NavLink>
